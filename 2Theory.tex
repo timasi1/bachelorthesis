@@ -1,0 +1,632 @@
+\chapter{Basics}
+\label{chapter:Theory}
+
+In order to theoretically analyze a crystal structure for its different properties, a model has to be selected. \\
+In condensed-matter physics, a tight-binding model has become a standard in recent decades. The Haldane model \cite{Haldane_1988} served as a stepping stone for subsequent models such as the Kane-Mele model \cite{Kane_2005}. \\
+In this chapter, the tight-binding model for a kagome lattice, altermagnetism and important symmetries are introduced. 
+
+\section{Tight-binding model}
+\label{section: tightbinding}
+% In this work, a electron tight-binding Hamiltonian with pure Rashba-Spin-orbit coupling (Rashba-SOC) and a magnetic texture is being used to compute the electronic spectra and further properties, where the electrons hop between different $\ce{Mn}$ sites with varying magnetic moments, defining the magnetic texture. 
+With an electronic tight-binding model, the motion of electrons in a crystal structure can be described. For the compounds considered here, the relevant crystallographic plane forms a kagome lattice, shown in Fig.~\ref{fig: kagome_model_definitions}.
+
+The total Hamiltonian $H = H_0+ H_\text{R}+ H_\text{M}$, describing the system, consists of three parts, where $H_0$ describes the nearest-neighbor hopping, $H_\text{R}$ the pure Rashba spin-orbit coupling (hereafter abbreviated as SOC) and $H_\text{M}$ the local magnetic exchange term. \\
+The hopping Hamiltonian is defined as
+\begin{align}
+H_0 = -\sum_{\mathbf R} \Bigg\{& t' \sum_{i=1}^{3} \mathbf{c}_{\mathbf R,\beta_i}^{\dagger} \mathbf{c}_{\mathbf R,\alpha_i} 
++t \sum_{i=1}^{3} \mathbf{c}_{\mathbf R-\mathbf a_i,\beta_i}^{\dagger} \mathbf{c}_{\mathbf R,\alpha_i} \Bigg\} +\mathrm{H.c.},
+\label{eq: 1_hamiltonian_hopping}
+\end{align}
+where the creation and annihilation operators, $\mathbf{c}_{\mathbf{R},\alpha_i}^\dagger$ and $\mathbf{c}_{\mathbf{R},\alpha_i}$, are used with $\mathbf{c}_{\mathbf R,\alpha}^{\dagger}
+  =
+  \left(
+  c_{\mathbf R,\alpha\uparrow}^{\dagger},
+  c_{\mathbf R,\alpha\downarrow}^{\dagger}
+  \right)$ or 
+  $\mathbf{c}_{\mathbf R,\alpha}
+  =
+  \begin{pmatrix}
+  c_{\mathbf R,\alpha\uparrow}\\
+  c_{\mathbf R,\alpha\downarrow}
+  \end{pmatrix}$
+ respectively with the sublattices 
+$$
+(\alpha_i,\beta_i) = \begin{cases}
+(A,B), & i=1,\\
+(B,C), & i=2,\\
+(C,A), & i=3.
+\end{cases}
+$$
+Here, the hopping amplitudes are defined as $t_i=t$ for the downward and $t'_i=t'$ for the upward facing triangles with $i\in\{1,2,3\}$, depicted in Fig. \ref{fig: kagome_model_definitions}. Note that the model can be adjusted by also adding distortions in the equilateral triangles, by choosing $t_i \neq t_j$ for $i\neq j$. In our case, we choose $t_i = t_j$. The case for $t=t'$ and $\lambda = \lambda'$ is called nonbreathing limit, describing a kagome lattice with equal-sized upward- and downward-facing triangles.
+ with the annihilation spinor defined as the column vector
+ 
+\begin{figure}[tbhp]
+    \centering
+    \centering
+    \begin{tikzpicture}[scale=1.8]
+    
+    \draw[thick] ({1/2}, {sqrt(3)/2}) -- ({1}, {sqrt(3)}) -- ({3/2}, {sqrt(3)/2}) -- ({1/2}, {sqrt(3)/2});
+    \draw[thick] ({3/2}, {sqrt(3)/2}) -- ({5/2}, {sqrt(3)/2}) -- ({2}, {0}) -- ({3/2}, {sqrt(3)/2});
+    \draw[thick] ({2}, {0}) -- ({5/2}, {-sqrt(3)/2}) -- ({3/2}, {-sqrt(3)/2}) -- ({2}, {0});
+    \draw[thick] ({1/2}, {-sqrt(3)/2}) -- ({1}, {-sqrt(3)}) -- ({3/2}, {-sqrt(3)/2}) -- ({1/2}, {-sqrt(3)/2});
+    \draw[thick] ({-1/2}, {sqrt(3)/2}) -- ({-1}, {sqrt(3)}) -- ({-3/2}, {sqrt(3)/2}) -- ({-1/2}, {sqrt(3)/2});
+    \draw[thick] ({-3/2}, {sqrt(3)/2}) -- ({-5/2}, {sqrt(3)/2}) -- ({-2}, {0}) -- ({-3/2}, {sqrt(3)/2});
+    \draw[thick] ({-2}, {0}) -- ({-5/2}, {-sqrt(3)/2}) -- ({-3/2}, {-sqrt(3)/2}) -- ({-2}, {0});
+    \draw[thick] ({-1/2}, {-sqrt(3)/2}) -- ({-1}, {-sqrt(3)}) -- ({-3/2}, {-sqrt(3)/2}) -- ({-1/2}, {-sqrt(3)/2});
+    
+    \draw[thick] ({0}, {0}) -- ({1/2}, {sqrt(3)/2}) -- ({-1/2}, {sqrt(3)/2}) -- ({0}, {0});
+    \draw[thick] ({0}, {0}) -- ({1/2}, {-sqrt(3)/2}) -- ({-1/2}, {-sqrt(3)/2}) -- ({0}, {0});
+    
+    \draw[mid arrow, pastelred, very thick, dashed] ({1/2}, {sqrt(3)/2}) -- ({-1/2}, {sqrt(3)/2}) node[midway, above right,  pastelred] {$t_2$};
+    \draw[mid arrow, pastelred, very thick, dashed] ({-1/2}, {sqrt(3)/2}) -- ({0}, {0}) node[midway,left, xshift=-5pt,pastelred] {$t_3$};
+    \draw[mid arrow, pastelred, very thick, dashed] ({0}, {0}) -- ({1/2}, {sqrt(3)/2}) node[midway,right, xshift=5pt, pastelred] {$t_1$};
+    
+    \draw[mid arrow, pastelblue, very thick, dashed] ({-1/2}, {-sqrt(3)/2}) -- ({1/2}, {-sqrt(3)/2}) node[midway, below, yshift=-5pt, pastelblue] {$t'_2$};
+    \draw[mid arrow, pastelblue, very thick, dashed] ({0}, {0}) -- ({-1/2}, {-sqrt(3)/2}) node[midway, left, xshift=-5pt, pastelblue] {$t'_1$};
+    \draw[mid arrow, pastelblue, very thick, dashed] ({1/2}, {-sqrt(3)/2}) -- ({0}, {0}) node[midway,right, xshift=5pt, pastelblue] {$t'_3$};
+    \draw[spin, black, thick] (1,{0}) -- (3/2,0) node[midway, below right] {$\mathbf{\hat{x}}$};
+    \draw[spin, black, thick] (1,{0}) -- (1,{1/2}) node[midway, above right] {$\mathbf{\hat{y}}$};
+    \filldraw[color=black, fill= white, thick]({1,{0}}) circle (1.5pt);
+    \filldraw[color=black, fill= black, very thick]({1,{0}}) circle (0.3pt) node[below, xshift=-2pt] {$\mathbf{\hat{z}}$};
+    \draw[spin, pastelgreen] (-1,{0}) -- (1,{0}) node[midway, below right, xshift=6pt] {$\mathbf{a}_2$};
+    \draw[spin, pastelgreen] ({-1},{0}) -- ({-2}, {sqrt(3)}) node[midway, above right, yshift=9pt, xshift=-9pt] {$\mathbf{a}_3$};
+    \draw[spin, pastelgreen] ({-1}, {0}) -- ({-2},{-sqrt(3)}) node[midway, below left, yshift=-1pt, xshift=-5pt] {$\mathbf{a}_1$};
+    
+    \filldraw[color=black, fill= black, very thick]({1}, {sqrt(3)}) circle (1.2pt);
+    \filldraw[color=black, fill= black, very thick]({1}, {-sqrt(3)}) circle (1.2pt);
+    \filldraw[color=black, fill= black, very thick]({-1}, {-sqrt(3)}) circle (1.2pt);
+    \filldraw[color=black, fill= black, very thick]({-1}, {sqrt(3)}) circle (1.2pt) node[right, xshift=3pt] {A};
+    \filldraw[color=black, fill= black, very thick]({2}, {0}) circle (1.2pt);
+    \filldraw[color=black, fill= black, very thick]({-2}, {0}) circle (1.2pt);
+    \filldraw[color=black, fill= black, very thick]({0}, {0}) circle (1.2pt);
+    
+    \filldraw[color=black, fill= black!40, very thick]({-3/2}, {sqrt(3)/2}) circle (1.2pt) node[below right, xshift=3pt] {B};
+    \filldraw[color=black, fill= black!40, very thick]({1/2}, {sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= black!40, very thick]({5/2}, {sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= black!40, very thick](-{5/2}, {-sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= black!40, very thick]({3/2}, {-sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= black!40, very thick]({-1/2}, {-sqrt(3)/2}) circle (1.2pt);
+    
+    \filldraw[color=black, fill= white, very thick]({3/2}, {sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= white, very thick](-{1/2}, {sqrt(3)/2}) circle (1.2pt)  node[above right] {C};
+    \filldraw[color=black, fill= white, very thick](-{5/2}, {sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= white, very thick]({5/2}, {-sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= white, very thick]({-3/2}, {-sqrt(3)/2}) circle (1.2pt);
+    \filldraw[color=black, fill= white, very thick]({1/2}, {-sqrt(3)/2}) circle (1.2pt);
+
+    
+    \def\spinlen{0.2}
+    \def\spinhalf{0.2}
+
+    % useful constants
+    \pgfmathsetmacro{\rt}{sqrt(3)}
+    \pgfmathsetmacro{\rtHalf}{sqrt(3)/2}
+    \pgfmathsetmacro{\rtQuarter}{sqrt(3)/4}
+    \pgfmathsetmacro{\threeRtQuarter}{3*sqrt(3)/4}
+
+    \draw[thick]
+      (5,0) -- (5.5,\rtHalf) -- (4.5,\rtHalf) -- (5,0);
+
+    \draw[thick]
+      (5.5,-\rtHalf) -- (5,0) -- (4.5,-\rtHalf) -- (5.5,-\rtHalf);
+
+    \centerspin[pastelblue, dashed]{(5,-\rtHalf)}{90}
+    \centerspin[pastelblue, dashed]{(4.75,-\rtQuarter)}{330}
+    \centerspin[pastelblue, dashed]{(5.25,-\rtQuarter)}{210}
+
+    \centerspin[pastelred]{(5,\rtHalf)}{90}
+    \centerspin[pastelred]{(4.75,\rtQuarter)}{210}
+    \centerspin[pastelred]{(5.25,\rtQuarter)}{330}
+
+    % \node[text=pastelblue, draw=none] at (1.1, 0.5) {$d_1$};
+    % \node[text=pastelblue, draw=none] at (0, 0.5) {$d_1$};
+    % \node[text=pastelblue, draw=none] at (0.625, -0.25) {$d_1$};
+
+    \node[text=black, draw=none] at (5.5, {(0.5+\rt)/4}) {$\mathbf{d}_1$};
+    \node[text=black, draw=none] at (5.2, {(0.5+\rt)/2}) {$\mathbf{d}_3$};
+    \node[text=black, draw=none] at (4.5, {(0.5+\rt)/4}) {$\mathbf{d}_2$};
+    \filldraw[color=black, fill= black, very thick]({5}, {0}) circle (1.2pt);
+    \filldraw[color=black, fill= black!40, very thick]({4.5}, {-\rtHalf}) circle (1.2pt);    
+    \filldraw[color=black, fill= black!40, very thick]({5.5}, {\rtHalf}) circle (1.2pt);
+    \filldraw[color=black, fill= white, very thick]({5.5}, {-\rtHalf}) circle (1.2pt);         
+    \filldraw[color=black, fill= white, very thick]({4.5}, {\rtHalf}) circle (1.2pt);    
+    \node[text=black, draw=none] at (-3, {(0.1+\rt)}) {$\mathbf{(a)}$};
+    \node[text=black, draw=none] at (4, {(0.1+\rt)}) {$\mathbf{(b)}$};
+    \end{tikzpicture}
+    \caption{kagome lattice showing the definitions of (a) the hopping amplitudes $t_i$ and the cell-connection vectors $\mathbf{a}_i$ and (b) the SOC bonding orientation vectors $\mathbf{d}_i$.}
+    \label{fig: kagome_model_definitions}
+\end{figure}
+The Pauli matrices later used are defined as
+\begin{align}
+    \bm{\hat{\sigma}} = \begin{pmatrix}
+        \hat{\sigma}_x\\ \hat{\sigma}_y\\ \hat{\sigma}_z
+    \end{pmatrix} \qquad 
+    \hat{\sigma}_x = \begin{pmatrix}0 & 1 \\ 1& 0
+    \end{pmatrix}, \quad 
+    \hat{\sigma}_y = \begin{pmatrix}0 & -i \\ i& 0 \end{pmatrix},\quad \text{and} \quad \hat{\sigma}_z = \begin{pmatrix}1 & 0 \\ 0& -1 \end{pmatrix}.
+    \label{eq: pauli matrices}
+\end{align}  
+
+For the pure Rashba-SOC term 
+% \begin{align}
+%     H_\text{R} =  i \sum_{\mathbf{R}}   &\left(\lambda' \big[\mathbf{c}_{\mathbf{R}B}^\dagger (\mathbf{d_1}\cdot \bm{\sigma})\mathbf{c}_{\mathbf{R}A} + \mathbf{c}_{\mathbf{R}C}^\dagger  (\mathbf{d_2}\cdot \bm{\sigma}) \mathbf{c}_{\mathbf{R}B} + \mathbf{c}_{\mathbf{R}A}^\dagger  (\mathbf{d_3}\cdot \bm{\sigma})\mathbf{c}_{\mathbf{R}C} \big] \right.\\ 
+%     &+ \left. \lambda \big[ c_{(\mathbf{R-a_1})B}^\dagger  (\mathbf{d_1}\cdot \bm{\sigma}) \mathbf{c}_{\mathbf{R}A} 
+%         + c_{(\mathbf{R-a_2})C}^\dagger  (\mathbf{d_2}\cdot \bm{\sigma})\mathbf{c}_{\mathbf{R}B} 
+%         + c_{(\mathbf{R-a_3})A}^\dagger  (\mathbf{d_3}\cdot \bm{\sigma})\mathbf{c}_{\mathbf{R}C} \big] \right)+ \text{H.c} .
+%         \label{eq: Rashba Hamiltonian soc}
+% \end{align}
+
+\begin{align}
+H_{\mathrm R}
+=
+i\sum_{\mathbf R}
+\Bigg\{
+&
+\lambda'
+\sum_{i=1}^{3}
+\mathbf{c}_{\mathbf R,\beta_i}^{\dagger}
+(\mathbf d_i\!\cdot\!\hat{\bm{\sigma}})
+\mathbf{c}_{\mathbf R,\alpha_i}
++
+\lambda
+\sum_{i=1}^{3}
+\mathbf{c}_{\mathbf R-\mathbf a_i,\beta_i}^{\dagger}
+(\mathbf d_i\!\cdot\!\hat{\bm{\sigma}})
+\mathbf{c}_{\mathbf R,\alpha_i}
+\Bigg\}
++\mathrm{H.c.},
+\label{eq:Rashba_Hamiltonian_soc}
+\end{align}
+the bond-orientation vectors $\mathbf{d}_1=(\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$, $\mathbf{d}_2=(0,\,1,\, 0)^{\mathrm T}$ and 
+$\mathbf{d}_3=(-\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$ and cell-connection vectors, defined as $\mathbf{d}_i = \mathbf{\hat{e}}_z\times\mathbf{a_i}$ with $\mathbf{a}_1  = (-1/2,\,-\sqrt{3}/2,\, 0)^{\mathrm T}$, $\mathbf{a}_2 = (1,\,0)^{\mathrm T}$ and $\mathbf{a}_3 = (-1/2,\,\sqrt{3}/2,\, 0)^{\mathrm T}$ are used, which are depicted in Fig. \ref{fig: kagome_model_definitions} with $\bm{\hat{\sigma}}$ defined in Eq. \eqref{eq: pauli matrices}.  The dashed bonding orientation vectors in \ref{fig: kagome_model_definitions} (b) resemble the Hermitian conjugate and therefore the switched sign of the imaginary unit. 
+Rashba-SOC requires structural inversion asymmetry normal to the $xy$-plane, as stated in Ref. \cite{Manchon2015}, and therefore can, for example be induced by applying an out of plane electrical field or by stacking polar planes as achieved by f.e. coupling the system to a superconducter, treating both sides $z$ and $-z$ differently, as executed in reference \cite{Quelle3}. This makes the two sides of the kagome plane distinguishable and therefore breaks the in-plane mirror symmetry. 
+Note, that we might also expect an intrinsic SOC in the examined kagome materials. To include intrinsic SOC, the model can be adjusted by adding a similar term as the Rashba-SOC term \eqref{eq:Rashba_Hamiltonian_soc}, but with $\mathbf{d}_i = \mathbf{e}_z$ as used in \cite{PhysRevB.99.165141}, where the tight-binding Hamiltonian is similarly defined, which will eventually split the spin-split bands further. Furtheron, only pure Rashba-SOC is used. 
+\\
+In detail, the Rashba-SOC Hamiltonian is created by modifying the general Hamiltonian
+\begin{align}
+    H_\text{R} = (\alpha_R/\hbar) \left(\mathbf{\hat{e}}_z\times \mathbf{p}\right) \cdot \bm{\sigma}
+    \label{eq: Rashba_Hamiltonian_standard}
+\end{align}
+as in Ref. \cite{Bychkov1984OscillatoryEA}.
+By using a discretization of the continous Hamiltonian and switching into quantum mechanics, analogously as in \cite{PhysRevB.94.184402}, the original Hamiltonian \eqref{eq:Rashba_Hamiltonian_soc} is achieved. Here, we use $\mathbf{p}\to \hat{\mathbf{p}} = -i\hbar\bm{\nabla}$ and obtain 
+\begin{align}
+    H_\text{R} = -i\alpha_\text{R}(\mathbf{\hat{e}}_z \times \bm{\nabla})\cdot \bm{\hat{\sigma}}.
+\end{align}. Lastly, defining a finite difference $\bm{{\delta}}_{ij}$ along directed bonds, produces 
+\begin{align}
+    H_\text{R} = i \sum_{\langle ij\rangle} \lambda_{ij} \mathbf{c}_i^\dagger [(\bm{\hat{e}}_{z}\times \bm{{\delta}}_{ij}) \cdot \bm{\hat{\sigma}}] \mathbf{c}_j + \text{H.c.}.
+\end{align}
+Hence, the imaginary unit originates from the momentum operator $-i\hbar\bm{\nabla}$.  
+Furtheron, the direction simplifies to the direction of the bonding orientation vectors $\mathbf{d}_i = \mathbf{\hat{e}}_z \times \bm{\delta}_{ij}$ as defined in Fig. \ref{fig: kagome_model_definitions}. 
+
+The magnetic texture Hamiltonian $H_\text{M}$ is defined as
+\begin{align}
+    H_\text{M} = -m_0 \sum_\mathbf{R} \sum_\alpha \mathbf{c}_{\mathbf{R},\alpha}^\dagger \left( \mathbf{m}_\alpha\cdot \mathbf{\hat{\sigma}}\right) \mathbf{c}_{\mathbf{R},\alpha},
+    \label{eq: hamiltonian magnetic texture}
+\end{align}
+which directed local magnetic texture $\mathbf{m}_\alpha$, with $|\mathbf{m}_\alpha=1|$ acts on each sublattice $\alpha$ with the strength $m_0\geq 0$. It can easily be seen, that this term is also hermitian. The sign is defined, that anti-aligning spins with the magnetic texture are energetically higher. This convention is later switched by changing the sign, and therefore later anti-aligning spins lie at lower energies.
+The local magnetic texture is defined as $\mathbf{m}_\alpha = \left                [\cos(\varphi_\alpha)\sin(\vartheta_\alpha), \,\sin(\varphi_\alpha)\sin(\vartheta_\alpha), \,\cos(\vartheta_\alpha)\right]^T$, where $\varphi_\alpha$ depends on the material. In this work, we set $\vartheta = \pi/2$ because we only use coplanar magnetic exchange fields.\\
+
+
+By using Eulers formula and some simplifications, as can be seen in more detail in Section \ref{chapter: AppendixA}, and defining $\sin(\Phi) = -\lambda/\sqrt{t^2+(-\lambda)^2}$ and $\cos(\Phi) = t/\sqrt{t² + (-\lambda)^2}$, with $\sin(\Phi') = -\lambda'/\sqrt{t'^2+(-\lambda')^2}$ and $\cos(\Phi') = t'/\sqrt{t'^2 + (-\lambda')^2}$, the total hopping Hamiltonian (without the magnetic texture) $H_\text{hop.} = H_0 + H_\text{R}$ becomes
+% \begin{align}
+%        H_\text{hop.} = H_\text{R} + H_0 &=   \sum_{\mathbf{R}}  \left(\sqrt{t'^2 + \lambda'^2} \big[\mathbf{c}_{\mathbf{R}B}^\dagger e^{i\Phi (\mathbf{d_1}\cdot \bm{\hat{\sigma}})} \mathbf{c}_{\mathbf{R}A} + \mathbf{c}_{\mathbf{R}C}^\dagger  e^{i\Phi (\mathbf{d_2}\cdot \bm{\hat{\sigma}})} \mathbf{c}_{\mathbf{R}B} + \mathbf{c}_{\mathbf{R}A}^\dagger  e^{i\Phi (\mathbf{d_3}\cdot \bm{\hat{\sigma}})}\mathbf{c}_{\mathbf{R}C} \big] \right.\\ 
+%     &+ \left.\sqrt{t^2 + \lambda^2} \big[ c_{(\mathbf{R-a_1})B}^\dagger  e^{i\Phi (\mathbf{d_1}\cdot \bm{\hat{\sigma}})} \mathbf{c}_{\mathbf{R}A} 
+%         + c_{(\mathbf{R-a_2})C}^\dagger  e^{i\Phi (\mathbf{d_2}\cdot \bm{\hat{\sigma}})}\mathbf{c}_{\mathbf{R}B} 
+%         + c_{(\mathbf{R-a_3})A}^\dagger  e^{i\Phi (\mathbf{d_3}\cdot \bm{\hat{\sigma}})}\mathbf{c}_{\mathbf{R}C} \big]\right) \\
+%         &+ \text{H.c}.
+%         \label{eq: Hamiltonian wo magnetic order}
+% \end{align}
+\begin{align}
+H_{\mathrm{hop}}
+=
+-\sum_{\mathbf R}
+\Bigg\{
+&\sqrt{t'^2+\lambda'^2}
+\sum_{i=1}^{3}
+\mathbf{c}_{\mathbf R,\beta_i}^\dagger
+e^{i\Phi'(\mathbf d_i\cdot\bm{\hat{\sigma}})}
+\mathbf{c}_{\mathbf R,\alpha_i}
+\nonumber\\
+&+
+\sqrt{t^2+\lambda^2}
+\sum_{i=1}^{3}
+\mathbf{c}_{\mathbf R-\mathbf a_i,\beta_i}^\dagger
+e^{i\Phi(\mathbf d_i\cdot\bm{\hat{\sigma}})}
+\mathbf{c}_{\mathbf R,\alpha_i}
+\Bigg\}
++\mathrm{H.c.}.
+\label{eq: Hamiltonian wo magnetic order}
+\end{align}
+We define the sign like this, so that the energetically lower state is a symmetrically occupied state. This is shown, by choosing a model consisting of only two sublattices $A$ and $B$ with no SOC and then solving the Hamiltonina. For the selected definition, the symmetrical eigenstate $\ket{-} = \mathbf{c}_{\mathbf{R},A} + \mathbf{c}_{\mathbf{R},B}$  has lower eigenenergy. 
+The sign convention is later changed by switching the global sign and therefore the symmetrical state will be the one with the higher energy.
+For further simplification, we define 
+\begin{align}
+    \hat{t}_i &= \sqrt{t^2 + \lambda^2}e^{i\Phi (\mathbf{d}_i\cdot \bm{\hat{\sigma}})} = t \hat{I}_2 - i \lambda(\mathbf{d}_i \cdot \bm{\hat{\sigma}}) \nonumber \\
+    \hat{t}'_i &= \sqrt{t'^2 + \lambda'^2}e^{i\Phi' (\mathbf{d}_i\cdot \bm{\hat{\sigma}})} = t' \hat{I}_2 - i \lambda'(\mathbf{d}_i \cdot \bm{\hat{\sigma}}),
+    \label{eq: t_hat and t_prime_hat}
+\end{align}
+where we use Eq. \eqref{eq: hamilton exp} for simplification, and secondly perform a Fourier transformation on the annihilation and creation operators according to 
+\begin{align}
+     \mathbf{c}^{\dagger}_{\mathbf{R}\alpha} &= \frac{1}{\sqrt{N}} \sum_{\mathbf{k}} c^{\dagger}_{\mathbf{k}\alpha} e^{-i \mathbf{k} \cdot (\mathbf{R}+\bm{\tau}_\alpha)} \nonumber\\
+       \mathbf{c}_{\mathbf{R}\alpha} &= \frac{1}{\sqrt{N}} \sum_{\mathbf{k}} \mathbf{c}_{\mathbf{k}\alpha} e^{i \mathbf{k} \cdot (\mathbf{R}+\bm{\tau}_\alpha)},
+    \label{eq: fourier transf}
+\end{align}
+
+where 
+\begin{align}
+           \bm{\tau}_A &= \begin{pmatrix}
+           0 \\ 0
+       \end{pmatrix}, \quad  \bm{\tau}_B = -\frac{\mathbf{a}_1}{2} \quad \text{and} \quad  \bm{\tau}_C = \frac{\mathbf{a}_3}{2}
+\end{align} 
+is used. This can be done because the unit-cell is periodic and therefore, a Fourier transformation can be performed. \\
+Here, the $\bm{\tau}_\alpha$-vectors are needed to map the creation and annihilation operators onto the according positions. This is mainly needed to gather cell-periodic states as clarified in Section \ref{chapter: AppendixB}. \\
+Also, the $A$-sublattice is chosen as the origin. With Eq. \eqref{eq: fourier transf} and the definition of $\hat{t}_i$ and $\hat{t}'_i$ the hopping Hamiltonian with SOC finally becomes
+ \begin{align}
+     H_\text{hop.} = - \sum_{\mathbf{k}}\Bigg\{ \sum_{i=1}^3 \mathbf{c}_{\mathbf{k},\beta_i}^\dagger (\hat{t}'_i + \hat{t}_i e^{i\mathbf{k}\cdot \mathbf{a}_i}) e^{i\mathbf{k}\cdot(\bm{\tau}_{\alpha_i} - \bm{\tau}_{\beta_i})} \mathbf{c}_{\mathbf{k},\alpha_i} \Bigg\}+\text{H.c.}.
+ \end{align}
+ The magnetic texture term $H_\text{M}$, as in \eqref{eq: hamiltonian magnetic texture} simplifies by using the Fourier transformation in Eq. \eqref{eq: fourier transf} to 
+\begin{align}
+    \mathcal{H}_\text{M} = - m_0\sum_\mathbf{k}\sum_\alpha \mathbf{c}_{\mathbf{k},\alpha}^\dagger(\mathbf{m}_\alpha\cdot  \bm{\hat{\sigma}})\mathbf{c}_{\mathbf{k},\alpha}.
+   \label{eq: Hamiltonian magnetic order} 
+\end{align}
+Choosing the $\left(\mathbf{c}_{\mathbf{k}A\uparrow}^\dagger, \mathbf{c}_{\mathbf{k}A\downarrow}^\dagger, \mathbf{c}_{\mathbf{k}B\uparrow}^\dagger, \mathbf{c}_{\mathbf{k}B\downarrow}^\dagger, \mathbf{c}_{\mathbf{k}C\uparrow}^\dagger, \mathbf{c}_{\mathbf{k}C\downarrow}^\dagger\right)$ basis and the magnetic Hamiltonian $\mathcal{H}_\text{M}$, defined in \eqref{eq: Hamiltonian magnetic order},
+we obtain the total Hamiltonian
+\begin{align}
+        \mathcal{H}(\mathbf{k})=\mathcal{H}_\text{hop.}(\mathbf{k}) +  \mathcal{H}_\text{M} &=  -\mathbf{D^\dagger(k)}\begin{pmatrix}
+        0 
+        & \hat{t}_1^{\prime\dagger} + \hat{t}_1^{\dagger} e^{- i \mathbf{k} \cdot \mathbf{a}_1} 
+        & \hat{t}_3^{\prime} + \hat{t}_3 e^{i \mathbf{k} \cdot \mathbf{a}_3} \\[4pt]
+        \hat{t}_1^{\prime} + \hat{t}_1 e^{i \mathbf{k} \cdot \mathbf{a}_1} 
+        & 0 
+        & \hat{t}_2^{\prime\dagger} + \hat{t}_2^{\dagger} e^{- i \mathbf{k} \cdot \mathbf{a}_2} \\[4pt]
+        \hat{t}_3^{\prime\dagger} + \hat{t}_3^{\dagger} e^{- i \mathbf{k} \cdot \mathbf{a}_3} 
+        & \hat{t}_2^{\prime} + \hat{t}_2 e^{i \mathbf{k} \cdot \mathbf{a}_2} 
+        & 0
+    \end{pmatrix}\mathbf{D(k)}  + \mathcal{H}_\text{M}\\ 
+    &=  \mathbf{D^\dagger(k)} \overline{\mathcal{H}}_\text{hop.}(\mathbf{k}) \mathbf{D(k)}+ \mathcal{H}_\text{M},\nonumber = \mathbf{D^\dagger(k)} \overline{\mathcal{H}}(\mathbf{k}) \mathbf{D(k)},\nonumber 
+\end{align}
+with the unitary matrix $\mathbf{D(k)} = \text{diag}\left(e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_C}, e^{i\mathbf{k}\cdot\bm{\tau}_C}\right)$. \\
+The magnetic Hamiltonian $\mathcal{H}_\text{M}$ can be pulled out of the transformation with the unitary matrix because the magnetic order Hamiltonian has block structure in the sublattices $\alpha$ and therefore commutes with $\hat{D}(\mathbf{k})$. \\
+Using the unitary property $\mathbf{D}^\dagger \mathbf{D} = \mathbf{I}_6$ it can be shown that, for $\overline{\mathcal{H}}(\mathbf{k})\overline{\mathbf{u}}_{n\mathbf{k}} = E_n(\mathbf{k})\overline{\mathbf{u}}_{n\mathbf{k}}$ and $\mathcal{H}(\mathbf{k})\mathbf{u}_{n\mathbf{k}} = E_n(\mathbf{k})\mathbf{u}_{n\mathbf{k}}$, the eigenvalues fulfill $\overline{E}_n(\mathbf{k}) = E_n(\mathbf{k})$ and the eigenstates $ \mathbf{u}_{n\mathbf{k}}=\mathbf{D}^\dagger(\mathbf{k})\overline{\mathbf{u}}_{n\mathbf{k}}$. Therefore, the band structure and the Fermi surface spin textures lead to equivalent results for the different Hamiltonians $\overline{\mathcal{H}}(\mathbf{k})$ and $\mathcal{H}(\mathbf{k})$.\\
+It might be intuitive to ask why the transformation needs to be done for the computation of the Berry curvature because the before defined periodic-gauge Hamiltonian $\overline{\mathcal{H}}$, which is periodic in $\mathbf{k}$, has also periodic eigenstates in $\mathbf{k}$ and therefore the Berry curvature is still periodic. However, by adding the transformation, the periodicity of the states is broken, resulting in a potentially non-periodic Berry curvature, which later is shown to be not true. It should be noted, that the used transformation is not a gauge transformation and therefore is expected to change the Berry curvature. The reason for this, is that the Berry curvature requires cell-periodic states, discussed in detail in Section \ref{chapter: AppendixB}.
+
+
+
+It can be seen, that $\overline{\mathcal{H}}(\mathbf{k})$ is still hermitian, as defined through the Hermitian conjugate and the unitary transformation, and with that is diagonizable, which is needed to calculate the electronic structure. 
+By defining 
+\begin{align}
+    \mathfrak{H}(\mathbf{k})=-\mathcal{H}(\mathbf{k}) = \mathbf{D^\dagger(k)}\left[\begin{pmatrix}
+        0 
+        & \hat{t}_1^{\prime\dagger} + \hat{t}_1^{\dagger} e^{- i \mathbf{k} \cdot \mathbf{a}_1} 
+        & \hat{t}_3^{\prime} + \hat{t}_3 e^{i \mathbf{k} \cdot \mathbf{a}_3} \\[4pt]
+        \hat{t}_1^{\prime} + \hat{t}_1 e^{i \mathbf{k} \cdot \mathbf{a}_1} 
+        & 0 
+        & \hat{t}_2^{\prime\dagger} + \hat{t}_2^{\dagger} e^{- i \mathbf{k} \cdot \mathbf{a}_2} \\[4pt]
+        \hat{t}_3^{\prime\dagger} + \hat{t}_3^{\dagger} e^{- i \mathbf{k} \cdot \mathbf{a}_3} 
+        & \hat{t}_2^{\prime} + \hat{t}_2 e^{i \mathbf{k} \cdot \mathbf{a}_2} 
+        & 0
+    \end{pmatrix}- \mathcal{H}_\text{M}\right]\mathbf{D(k)},
+    \label{eq: bloch-Hamiltonian}
+\end{align}
+the sign of the eigenvalues flips, leading to a flipped bandstructure and with that, the chemical potential $\mu$ has to be inverted. This convention will henceon be used, as also chosen in reference \cite{Quelle3}.
+Note, that with this models we expect up to six bands in the band structure because we have a $6\times6$-Hamiltonian and therefore six energy eigenvalues at every $\mathbf{k}$, counted with multiplicity. 
+\section{Brillouin zone}
+For physical calculations it is useful to stay in the Brillouin zone. For the kagome lattice, the Brillouin zone can be defined in different ways. Here, the hexagonal and the reshaped form are discussed.
+Firstly, the primitive translation vectors in the $xy$-plane of the kagome lattice are defined by
+\begin{align}
+    \mathbf{A}_1 = a\begin{pmatrix} 1 \\ 0\end{pmatrix}, \qquad \mathbf{A}_2 = \frac{a}{2}\begin{pmatrix} 1 \\ \sqrt{3}    \end{pmatrix}, \qquad \mathbf{t} = t_1 \mathbf{A}_1 + t_2 \mathbf{A}_2,
+\end{align}
+where $a$ denotes the lattice constant, $t_1$ and $t_2$ are integers, and $\mathbf{t}$ denotes a general lattice translation vector.
+\begin{figure}[tbh]
+    \centering
+    \begin{tikzpicture}[scale=2]
+        \draw[thick]  ({0}, {0}) -- ({1/2}, {sqrt(3)/2}) -- ({3/2}, {sqrt(3)/2}) -- ({2}, {0}) -- ({3/2}, {-sqrt(3)/2}) -- ({1/2}, {-sqrt(3)/2}) -- ({0}, {0});
+        \draw[dashed, thick] ({1/2}, {sqrt(3)/2}) -- ({0}, {sqrt(3)}) -- ({1/2}, {3*sqrt(3)/2}) -- ({3/2}, {3*sqrt(3)/2}) -- ({2}, {sqrt(3)}) -- ({3/2}, {sqrt(3)/2});
+        \draw[dashed, thick] ({2}, {sqrt(3)}) -- ({3}, {sqrt(3)}) -- ({7/2}, {sqrt(3)/2}) -- ({3}, {0}) -- ({2}, {0});
+        \draw[dashed, thick] ({3}, {0}) -- ({7/2}, {-sqrt(3)/2}) -- ({3}, {-sqrt(3)}) -- ({2}, {-sqrt(3)}) -- ({3/2}, {-sqrt(3)/2});
+        \filldraw[
+          fill=blue!60,
+          draw=blue!80!black,
+          fill opacity=0.3,
+          draw opacity=0.5,
+          line width=0.5pt
+        ]
+        (1,0) -- (1,{sqrt(3)}) -- ({5/2},{sqrt(3)/2}) -- ({5/2},{-sqrt(3)/2}) -- cycle;
+        \draw[spin, pastelgreen] (1,0) -- ({5/2},{sqrt(3)/2}) node[midway, below]{$b_1$}; 
+        \draw[spin, pastelgreen] (1,0) -- ({1},{sqrt(3)}) node[midway, above right]{$b_2$};
+        \filldraw[color=black, fill= black, very thick]({2}, {0}) circle (0.8pt) node[above right, xshift=3pt] {$\bm{K}$};
+        \filldraw[color=black, fill= black, very thick]({1}, {0}) circle (0.8pt) node[below right, xshift=3pt] {$\bm{\Gamma}$};
+        \filldraw[color=black, fill= black, very thick]({7/4}, {sqrt(3)/4}) circle (0.8pt) node[above right, xshift=-6pt, yshift=3pt] {$\bm{M}$};
+    \end{tikzpicture}
+    \caption{Illustrated is the Brillouin zone with the high symmetry points $\Gamma$, K and M and the corresponding primitive translation vectors $b_1$ and $b_2$ in reciprocal space. The blue marked space comprises the reshaped Brillouin zone.}
+    \label{fig: Brillouin Zone}
+\end{figure}
+
+
+Then, using $\mathbf{A}_i \cdot \mathbf{b}_j = 2\pi \delta_{ij}$ with $i,j \in \{1,2\}$, the reciprocal primitive translation vectors $b_j$ for $i,j \in {1,2}$ are calculated.
+\begin{align}
+    \mathbf{b}_1 = \frac{2\pi}{a}\begin{pmatrix} 1 \\ -\frac{1}{\sqrt{3}}\end{pmatrix}, \qquad \mathbf{b}_2 = \frac{2\pi}{a}\begin{pmatrix} 0 \\ \frac{2}{\sqrt{3}}    \end{pmatrix}, \qquad \mathbf{G} = g_1 \mathbf{b}_1 + g_2 \mathbf{b}_2.
+\end{align}
+Here, $g_1$ and $g_2$ are integers spanning the reciprocal lattice, consisting of the reciprocal lattice vector $\mathbf{G}$. \\
+Lastly, the construction of the Wigner-Seitz cell in the reciprocal space, which is equal to the Brillouin zone, delivers the hexagonal Brillouin zone as seen in Fig. \ref{fig: Brillouin Zone}. 
+For numerical integration we use the equivalent reciprocal primitive cell spanned by $\mathbf{b}_1$ and $\mathbf{b}_2$, depicted by the blue marked space in Fig. \ref{fig: Brillouin Zone}.
+
+\section{Altermagnetism}
+\label{section: Altermagnetism}
+
+In this section a general definition and a classification of altermagnetism is introduced, which is based on Ref. \cite{Cheong2025}. It should be noted, that there exist different definitions of altermagnetism in the newly refined field, where the momentum-space spin texture 
+\begin{align}
+    \mathbf{s_n}(\mathbf{k}) = \bra{\Psi_{n\mathbf{k}}} \bm{\hat{\sigma}}\ket{\Psi_{n\mathbf{k}}}
+    \label{eq: spin expectation}
+\end{align} 
+is used to also define, so called "antialtermagnetism", e.g. in Ref. \cite{JUNGWIRTH2025100162}, where $\ket{\Psi_{n\mathbf{k}}}$ denotes the eigenstate of the $n$-th band for $\mathbf{k}$. To avoid confusion, we will not use the terminology antialtermagnetism.
+As mentioned before, the definition of altermagnetism was originally introduced for collinear 
+sytems, which was later extended for altermagnets with non-collinear spins, with the included kagome lattice. 
+Altermagnets have full-compensated  spin angular momenta (in the ground state) and broken $\mathcal{PT}$-symmetry. However, compensation and
+  broken \(\mathcal{PT}\) symmetry alone do not guarantee spin-split
+  bands, because other unitary or antiunitary symmetries may still enforce
+  band degeneracies. Therefore, the magnetic symmetry group must also
+  allow a momentum-dependent spin splitting. Thus, they contain properties of antiferromagnets because of the vanishing net-spin moment, as well as ferromagnets due to the spin-split bands commonly associated with them. 
+There exist different ways to achieve a broken $\mathcal{PT}$-symmetry according to \cite{Cheong2025}. One can have (1) broken $\mathcal{T}$-symmetry or (2) unbroken $\mathcal{T}$-symmetry but broken $\mathcal{P}$-symmetry.
+In this work we will only analyze materials belonging to type (1). \\
+Kagome lattices belonging to type (2) also exist, as discussed in \cite{Cheong2025}. These altermagnets are also a recent research topic, in e.g. \cite{Sah2026}. \\
+
+We briefly introduce the Hermann–Mauguin notation following Ref. \cite{Hoffmann2020}. The symbols characterize specific symmetry operations with corresponding crystallographic directions. An attached prime on a symmetry operation marks an additional time-reversal. Thus, for an operation $g$, the corresponding prime operation denotes $g'= \mathcal{T}g$. 
+For the hexagonal magnetic point group (hexagonal MPG) $6'/m'mm'$, the first symbol, $6'/m'$ denotes a sixfold rotation about the principal axis, which we choose as the $z$-axis in Fig. \ref{fig: kagome_model_definitions}, combined with time reversal and a mirror plane perpendicular to the principal axis, again combined with time-reversal. The final two operations, with symbols $m$ and $m'$ represent vertical mirror-planes, including the principal axis, where one of them is combined with time-reversal. 
+The assignment of the operations to specific crystallographic axes is convention dependent.\\
+
+
+
+The types can further be classified into three further classes.\\
+
+Here, M-type denotes altermagnets of type (1) with ferromagnetic behavior in presence of SOC, which occurs because of a ferromagnetic magnetic point group and a full spin-compensation. 
+Therefore, there exist symmetries, which break in presence of SOC and allowing a net magnetization for SOC. The magnetic point group contains $m'mm'$, where the kagome lattice of $\ce{Mn3Ge}$ is apart of, and $mm'm'$, where the lattice $\ce{Mn3Sn}$ is apart of. 
+
+
+
+There exists also the so called A-type altermagnet, belonging to type (2) with no magnetization. It will provide antisymmetric spin-splitting as determined by the contained $\mathcal{T}$-symmetry. The kagome-like material analyzed in reference \cite{Sah2026} was of type A. 
+
+In contrast, S-type altermagnets are still of type (1) but have a forced net magnetization, which is imposed by the magnetic point groups. Due to the symmetry contained in $\mathcal{P}$, the spin splitting will occur symmetrically in $\mathbf{k}$, which means a spin split energy $\Delta E$, even in $\mathbf{k}$. A part of the magnetic point group that fulfills this property is $6'/m'mm'$, of which \ce{Mn3Pt} is apart. Depending on the phase, the order of the last two axes will change. If also $\mathcal{P}$ is broken, the state is a S/A-type altermagnet, defined in Ref. \cite{Cheong2025}, therefore, leading to a mixture of symmetric and antisymmetric spin-splitting. 
+
+It should be mentioned, that there are further classifications, e.g. \cite{PhysRevB.110.174410}. Also, one could further classify altermagnets in strong and weak ones, where the latter describes altermagnets, which are only spin split in presence of SOC, whereas the former holds also in absence of SOC. Often Altermagnets are defined only for strong altermagnets, as e.g. in Ref. \cite{Quelle3}.
+
+
+For altermagnets to have fully compensated spin angular momenta, it is necessary for the system to stay below the Néel temperature of the material, since above the Néel temperature altermagnetic spin-split bands are lost. 
+
+
+
+
+
+
+
+
+% M-Altermagnetism:  can exhibit linear AHE
+% (transverse piezomagnetism = basically nonbreathing vs breathing -> magnetization)
+
+% S-Altermagnetism: Broken T, no magnetization, symmetric spin splitting (occurs mostly when P exists) (-> transverse piezomagnetism), symmertric spin splitting means spin split energy DeltaE even in k
+% broken T and PT and nonzero magnetization -> transverse even-order current-induced magnetization (high-odd-order AHE)
+
+% A-ALtermagnetism: broken P, unbroken T, no magnetization, antisymmetric spin splitting so spin split energy Delta E odd in k -> Anomalous Hall effect (AHE)
+% transverse odd order current induced magnetization (odd and even AHE)
+
+% strong altermagnets: spin split bands throguh exchange coupling (zero SOC)
+% M and S type with broken T and collinear spins always strong (when a material has more than one rotation symmetry of spin space,); probably also for non-collinear spins
+
+% weak altermagnets: spin split only with nonzero SOC
+
+
+
+% Mn3Ge m'mm' M-type magnetich moment parallel to TM symmetry, exhibit linear AHE perpendicular to TM
+
+
+% Mn3Sn mm'm' M-type due to broken T and net magnetic perpendicular to M symm, exhibit linear AHE parallel to M symm
+
+% Mn3Pt T1 6'/m'm'm S-type has broken T,   transverse even-order currentinduced
+% magnetization ( transverse even-order currentinduced magnetization with current along x and induced magnetization
+% along y, high-odd-order AHE with current along x and Hall voltage along z,
+% and transverse piezomagnetism with uniaxial stress along x and induced
+% magnetization along y.)
+
+
+% Mn3Pt T2 6'/m'mm' S-type
+
+
+
+
+
+\section{Berry curvature}
+\label{section: Berrycurv}
+To compute the Berry curvature the with $\mathbf{D(k)}$ transformed Hamiltonian has to be used, to gather cell-periodic states, as discussed in section \ref{chapter: AppendixB}.
+
+The Berry phase $\gamma_n \in [0,2\pi[$ describes the geometrical phase picked up of an electron by going along a loop $C$.
+ \begin{align}
+\gamma_n
+&=
+\oint_{\mathcal C}
+\mathbf A_n(\mathbf k)\cdot \text{d}\mathbf k,
+&
+\mathbf A_n(\mathbf k)
+&=
+-i\langle u_{n\mathbf k}|\nabla_{\mathbf k}|u_{n\mathbf k}\rangle .
+\end{align}
+The Berry curvature is the curl of the Berry connection, given by
+\begin{align}
+\bm{\Omega}^{(n)}(\mathbf k)
+&=
+\nabla_{\mathbf k}\times \mathbf A_n(\mathbf k)
+\end{align}
+and can be viewed as the field leading to the Berry phase.
+The Berry curvature is a characteristic of $\mathcal{PT}$-breaking systems because $\mathcal{P}$ will impose $\mathcal{P}\,\bm{\Omega}_n(\mathbf{k}) =\bm{\Omega}_n(-\mathbf{k})$ and $\mathcal{T}$ will impose $\mathcal{T}\,\bm{\Omega}_n(\mathbf{k}) =-\bm{\Omega}_n(-\mathbf{k})$, which forces the Berry curvature to vanish in systems with conserved $\mathcal{PT}$. Note, that the Berry curvature can also vanish for breaking $\mathcal{PT}$-systems. forced by additional crystal or antiunitary symmetries.
+For spinful systems the bands are generally degenerate and therefore, the definition of the Berry curvature has to be extended, as later shown. Then, the composite Berry curvature vanishes for conserved $\mathcal{PT}$ spinful systems.
+The imposed properties follow from the action of the symmetries on the derivative in $\mathbf{k}$-space.
+Lastly, the Chern number is defined as
+\begin{align}
+C_n = \frac{1}{2\pi}
+\int_{\mathrm{BZ}}
+\Omega^{(n)}_{xy}(\mathbf k)\,\text{d}^2k
+\in \mathbb Z,
+\label{eq: Chern number}
+\end{align}
+which is only described for isolated bands. In environment of a degeneracy, the Chern number has to be extended, by the composite Chern number, where the eigenvectors are replaced an isolated subspace consisting of the eigenvectors from the degenerate bands. The Chern number is topologically invariant and describes the winding number of the wave function as it moves over the Brillouin zone. By going around a small plaquette the Berry curvature can eventually be computed according to the Fukui-Hatsugai-Suzuki method as in  \cite{Fukui_2005}.
+
+So firstly the phase of a closed loop in k-space is calculated by Equation \ref{eq: berry curv comp1}.
+% Requires: \usepackage{amsmath}
+\begin{equation}
+    U_{\mathbf{k}_\alpha \to \mathbf{k}_\beta}^{(n)} \equiv 
+    \frac{\left\langle \mathbf{u}_{n,\mathbf{k}_\alpha} \middle| \mathbf{u}_{n,\mathbf{k}_\beta} \right\rangle}
+    {\left| \left\langle \mathbf{u}_{n,\mathbf{k}_\alpha} \middle| \mathbf{u}_{n,\mathbf{k}_\beta} \right\rangle \right|}
+    \label{eq: berry curv operator U1}
+\end{equation}
+\begin{equation}
+    \tilde{F}_{12}(k_\ell) \equiv \ln \Big\{U_{\mathbf{k}_1 \to \mathbf{k}_2}^{(n)} U_{\mathbf{k}_2 \to \mathbf{k}_3}^{(n)} U_{\mathbf{k}_3 \to \mathbf{k}_4}^{(n)} U_{\mathbf{k}_4 \to \mathbf{k}_1}^{(n)}\Big\}
+    \label{eq: berry curv comp1}
+\end{equation}
+Now defining the Chern number as
+\begin{equation}
+    \tilde{C}_n \equiv \frac{1}{2\pi i} \sum_{\ell} \tilde{F}_{12}^{(n)}(k_{\ell}),
+    \label{eq: chern comp}
+\end{equation}
+and by comparing this to Equation \eqref{eq: Chern number}, the Berry curvature is estimated to
+\begin{equation}
+    \label{eq: berry curv computation}
+    \Omega_{12}^{(n)}(k_{\ell})   \approx \frac{\Im( \tilde{F}^{(n)}_{12}(k_{\ell})) } {\text{d}A}.
+\end{equation}
+We use for $\mathbf{k}_1= \mathbf{k}_\ell$, $\mathbf{k}_2 = \mathbf{ k}_\ell + \frac{1}{A}(\mathbf{b}_1- \mathbf{b_2})$, $\mathbf{k}_3 = \mathbf{ k}_\ell + \frac{1}{A}\mathbf{b}_1$ and $\mathbf{k}_4 = \mathbf{ k}_\ell + \frac{1}{A}\mathbf{b}_2$ with $A$ denoting the step size and $\mathbf{k}_\ell$ sitting on the grid edges. The area element consists of the area of a plaquette given by $\text{d}A = \bm{\hat{e}}_z \cdot(\Delta \mathbf{k}_1 \times \Delta\mathbf{k}_2$) for the chosen parallelogram cell, depicted in Fig. \ref{fig: Brillouin Zone}. Here, $\Delta\mathbf{k}_1$ and $\Delta\mathbf{k}_2$ denote the two momentum-space step vectors connecting neighboring points of the discrete mesh.\\
+For degenerate bands the eigenstates of the  bands are not clearly defined, so the composite computation has to be used as in \cite{Zhao:20}.
+Therefore, instead of using only $U_1(k_\ell)$ you take the determinant of $\hat{U}_{\mathbf{k}_\alpha \to \mathbf{k}_\beta}^{(n)}$, where the components consist of the eigenstates of the degenerate bands. So, we finally obtain
+\begin{align}
+        \tilde{\Omega}_{12}(\mathbf{k}_\ell) \equiv  \frac{1}{\delta k_1 \delta k_2} 
+        \Im \Bigg\{\ln \Big[  &M_{\mathbf{k}_1 \to \mathbf{k}_2}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)} M_{\mathbf{k}_2 \to \mathbf{k}_3}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)} \nonumber \\
+        &M_{\mathbf{k}_3 \to \mathbf{k}_4}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)} M_{\mathbf{k}_4 \to \mathbf{k}_1}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)}  \Big] \Bigg\}
+    \label{eq: berry curv comp}
+\end{align}
+with 
+\begin{align}
+    \hat{U}_{\mathbf{k}_\alpha \to \mathbf{k}_\beta}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)}(\ell, m) = {\langle \mathbf{u}_{n_\ell,\mathbf{k}_\alpha}| \mathbf{u}_{n_m,\mathbf{k}_\beta}\rangle}
+\end{align}
+and
+\begin{align} 
+    M_{\mathbf{k}_\alpha \to \mathbf{k}_\beta}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)} =  \frac{\det \left(\hat{U}_{\mathbf{k}_\alpha \to \mathbf{k}_\beta}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)} \right)}{\left|\det \left(\hat{U}_{\mathbf{k}_\alpha \to \mathbf{k}_\beta}^{(n\oplus n+1 \oplus \dots \oplus n+N-1)} \right)\right|}
+\end{align}
+for the potentially degenerate bands $\{n, n+1, \dots, n+N-1\}$ with $U(\ell,m)$ denoting the component in row $\ell$ and column $m$. 
+In this the single-band computation is already included as can easily be seen by using $N=1$, therefore we will furtheron use this algorithm to compute the Berry curvature. The Chern number is therefore calculated given by
+\begin{align}
+    C_{(n,n+1,\dots,n+N-1)}= \frac{1}{2\pi}\sum_{\mathbf{k}_\ell \in\text{BZ}} \tilde{\Omega}_{12}(\mathbf{k}_\ell)\delta k_1 \delta k_2 
+\end{align}
+For the values of $\delta k_{1} \delta k_{2}$ the reshaped Brillouin zone has to be taken into account by including the area of the reshaped Brillouin zone. Lastly, we will use the periodicity of the Berry curvature to shift the reshaped Brillouin zone four times, so that we obtain the original hexagonal Brillouin zone. \\
+
+
+\section{Symmetries}
+\label{section: Symmetries}
+The presented system holds different symmetries. These symmetries change by changing the magnetic texture and therefore depend on the material as later discussed. Henceforth, we will use the notation $[g_s||g_r]$ for the non-relativistic spin groups , where $g_s$ denotes spin-space transformations and $g_r$ real-space transformations, as also used in \cite{Quelle3}. Note, that we also use $\mathcal{P}$, $\mathcal{T}$ and $\mathcal{M}$-symmetries, denoting the inversion, time-reversal or mirror symmetry respectively. \\
+In general a unitary symmetry is a symmetry, if it commutes with the Hamiltonian and therefore if 
+\begin{align}
+    U_g^\dagger H(\mathbf{k})U_g = H(g\mathbf{k}) 
+    \label{eq: symmetry_unitary}
+\end{align}
+applies. For the in Fig.~\ref{fig: kagome_model_definitions} chosen model with magnetic moments not depending on the unit cell, but on the sublattices, there is a two-dimensional $\mathcal{P}$-symmetry due to spins being invariant under inversion. Therefore, $\mathcal{T}$-symmetry has to be broken to enable spin-split bands.\\
+The time-reversal symmetry operator for a spin $1/2$ system has the operator $\mathcal{T} = i \sigma_y \mathcal{K}$, where $\sigma_y$ denotes the Pauli-matrix and $\mathcal{K}$ the complex conjugation operator.
+In contrast a mirror plane along $\hat{{s}}$ can be expressed as $[C_{2\hat{s}}||\sigma_v$ with $\sigma_v$ denoting a reflection plane along the mirror plane. 
+Symmetries, which do not treat spin-space and real-space equivalently, will break for SOC, leading to a higher freedom for the system. \\
+Extra care should be taken for mirror symmetries acting on spins because spins behave differently than f.e momentum vectors $\mathbf{k}$.
+The reason behind this is that spin is a pseudo vector, analogous to angular momentum, meaning that for a mirror symmetry acting on a spin, it undergoes a reflection followed by an inversion, leading to the transformation
+\begin{align}
+    \mathbf{S}=\begin{pmatrix}
+        s_x\\s_y\\s_z
+    \end{pmatrix} \quad\xrightarrow{\mathcal{M}_z}\quad \mathbf{S}'=\mathcal{M}_z \mathbf{S}= \begin{pmatrix}
+        -s_x\\ -s_y \\ s_z
+    \end{pmatrix} 
+\end{align}
+for a mirror symmetry in $xy$-plane acting on the spin $\mathbf{S}$.\\
+
+The $\mathcal{T}$-symmetry, is conserved in the Rashba Hamiltonian as can be seen in Eq. \eqref{eq: Rashba_Hamiltonian_standard}, which however will be broken by the magnetic texture, as needed for a spin splitting according to Kramer's degeneracy.
+A Kramer's degeneracy occurs if there exists a  time-reversal symmetry including antiunitary operation $\mathcal{A}\mathcal{T}$, for which $(\mathcal{AT})^2=-1$. This symmetry operation leads to a pair of orthogonal eigenvectors at the same energy level. Therefore, there is a Kramer's degenerate pair of eigenstates, leading to a spin degeneracy. 
+Hence, a broken $\mathcal{PT}$ and therefore a broken $\mathcal{T}$-symmetry (or $\mathcal{P}$-symmetry) is needed to deliver spin splitting.
+
+As already mentioned, there also exist Altermagnets, which have unbroken $\mathcal{T}$ but broken inversion symmetry $\mathcal{P}$. However, this type is not discussed in this work and therefore will not be explained further.\\
+
+For the ideal kagome lattice with three sublattices, defined in Fig. \ref{fig: kagome_model_definitions}, and coplanar $120^\circ$ triangular magnetic states, exists a $[C_{2\mathbf{\hat{s}}}||\sigma_v]$-symmetry for no SOC, with $\sigma_v$ denoting the reflection plane and $\mathbf{\hat{s}}$ pointing along the spin on the mirror plane.  This symmetry operation imposes the conditions
+\begin{align}
+    E_n(\mathbf{k}) = E_n(\sigma_v\mathbf{k}), \quad \mathbf{s}_n(\mathbf{k})= C_{2\mathbf{\hat{s}}}\mathbf{s}_n(\mathbf{k})\quad \text{and} \quad \bm{\Omega}_n(\mathbf{k}) = C_{2\mathbf{\hat{s}}}\bm{\Omega}_n(\sigma_v\mathbf{k}).
+    \label{eq: symmetry_C2s_sigma}
+\end{align}
+Note, that this symmetry operation is equivalent to the mirror plane $\mathcal{M}$, if the spin sitting on the mirror plane is perpendicular to it. In this case, this operation holds also for SOC. 
+If the spin is parallel to the mirror plane, it may seem intuitive to say that the operation then forms a $\mathcal{TM}$-symmetry, but the momentum would differ by a sign. However, the symmetry breaks, similarly as the $\mathcal{TM}$-planes, by adding SOC because the spin-space transformation is inequivalent to the spatial one. This occurs for every alignment of the magnetic moment, which is not perpendicular to the reflection plane.\\
+Because the $\mathcal{M}$ plane is equivalent to a $[C_{2\mathbf{\hat{s}}}||\sigma_v]$-symmetry, the constraints are given by Eq. \eqref{eq: symmetry_C2s_sigma} and therefore for the mirror plane $\mathcal{M}$
+\begin{align}
+    E_n(\mathbf{k}) &= E_m(\mathcal{M}\mathbf{k}) \nonumber \\ 
+    s_n(\mathbf{k}) &= C_{2\mathbf{\hat{s}}}s_m(\mathcal{M}\mathbf{k})\nonumber  \\
+    \Omega_{xy}(\mathbf{k}) &= -\Omega_{xy}(\mathcal{M}\mathbf{k})
+    \label{eq; symmetry_M}
+\end{align}
+and for the time-reversal mirror operation $\mathcal{TM}$
+\begin{align}
+E_n(\mathbf{k}) &= E_m(-\mathcal{M}\mathbf{k}),\nonumber  \\
+s_n(\mathbf{k}) &= -C_{2\mathbf{\hat{s}}} s_m(-\mathcal{M}\mathbf{k}), \nonumber \\
+\Omega_{xy}(\mathbf{k}) &= \Omega_{xy}(-\mathcal{M}\mathbf{k}).
+\label{eq: symmetry_TM}
+\end{align}\\
+To show that a $\mathcal{TM}$ plane in the $yz$-plane is conserved, the condition
+\begin{align}
+  \bigl(P_{\mathcal{M}}\otimes\sigma_z\bigr)
+  \mathcal H^*(\mathbf k)
+  \bigl(P_{\mathcal{M}}\otimes\sigma_z\bigr)^\dagger = \mathcal H(-\mathcal{M}\mathbf k)
+  \label{eq: TM symmetry prove eq}
+\end{align}
+  according to \eqref{eq: symmetry_unitary} has to be shown, where $P_\mathcal{M}$ denotes the mirror plane operation and for the time-reversal $\mathcal{T}_\text{spin}\mathcal{M}_\text{spin} = \mathcal{M}_\text{spin}i \hat{\sigma}_y \mathcal{K}= i\hat{\sigma}_z \mathcal{K}$  is used.
+
+  
+  
+% We now show that the $\mathcal{TM}$-symmetry is broken for SOC with
+% \begin{align}
+%     \mathcal{TM}\{H(\mathbf{k})\} = U_{TM} H(\mathbf{k)}^* U_{TM}^\dagger = H(-\mathcal{M}\mathbf{k)},
+%     \label{eq: symmetry_TM broken_theory}
+% \end{align}
+% where we use Eq. \eqref{eq: symmetry_unitary} and the time-reversal operator leading to a commutation of the Hamitonian.
+% Applying the Rashba-Hamiltonian from equation \eqref{eq:Rashba_Hamiltonian_soc} and selecting the mirror plane in $yz$-plane through the $A$-sublattice and selecting the hopping between the $B$ and $C$ sublattices, where $\mathbf{d}_2 = (0,\,1)^T$ we obtain for the hopping Hamiltonian
+% \begin{align}
+%     h_{BC} = i \lambda' c_C^\dagger \hat{\sigma}_y c_B.
+% \end{align}
+% Hence, the righthandside of Eq. \eqref{eq: symmetry_TM broken_theory} becomes
+% \begin{align}
+%     h_{CB} = -i \lambda' c_C^\dagger \hat{\sigma}_y c_B.
+% \end{align}
+% Lastly, we use $U_{TM}= P \,\otimes i\hat{\sigma}_y$, where $P$ denotes the mirror symmetry and thus the rotation of the spin in $x$-direction, and $i\sigma_y$ coming from the time-reversal operation as mentioned before.
+% Hence, we obtain
+% \begin{align}
+%     U_{TM}h_{BC}^*U_{TM}^\dagger &= (P \,\otimes i\hat{\sigma}_y) (-i \lambda' c_C^\dagger \hat{\sigma}_y c_B) (P \,\otimes i\hat{\sigma}_y)^\dagger \nonumber \\
+%     &= P  (i\lambda \hat{\sigma}_y) P^\dagger= -i\lambda' \hat{\sigma}_y \neq  i\lambda' \hat{\sigma}_y = h_{CB}
+%     \label{eq: TM broken for SOC}
+% \end{align}
+% and therefore we showed that $\mathcal{TM}$ is broken for SOC. 
+For $\mathcal{M}$ planes, one has to guarantee that the spinful and spatial transformation behave equivalently. Because the $\mathcal{M}$ plane is equal to $[C_{2\hat{s}}||E]$, if $\hat{s}$ is perpendicular to the mirror plane, and there the spin-space and real-space transformation are equivalent, the $\mathcal{M}$ plane is conserved for SOC for this special case. In general, for a arbritrary mirror plane a condition similar to the one in \eqref{eq: TM symmetry prove eq} has to be shown.\\
+
+In general, with respect to the magnetic order, altermagnets on the kagome lattice of $M$-type or $S$-type hold in the nonbreathing limit the inversion symmetry, or in a two-dimensional system $[E||C_{2\mathbf{z}}]$-symmetry, leading to energy, spin and Berry curvature being even in $\mathbf{k}$. 
+This can be directly seen in the model in Eq. the total Hamiltonian \eqref{eq: Hamiltonian wo magnetic order} and Eq. \eqref{eq: Hamiltonian magnetic order} by swapping the sublattices $B$ and $C$. 
+The sign change in the lattice vector $\mathbf{R}$ can be removed by relabeling the lattice vector $\mathbf{R}\to -\mathbf{R}$.\\
+
+Another general symmetry, which holds for spinful coplanar systems, is $\Theta_s[C_{2\mathbf{z}}||E]$, which holds only in the absence of SOC. Hence, energies and in-plane spins are expected to be even, out-of plane spins to be odd and the Berry curvature to be odd in $\mathbf{k}$. In presence of this symmetry the net-magnetization in $z$-direction becomes zero. 
+
+
+
+
+
+
+
+
+
+
+
+
+% Due to the broken inversion symmetry, the spin splitting is not entirely even in momentum, which—depending on conventions—can be thought of as an admixed “antialtermagnetic” component  )
+
+
+
+
+
+% For no magnetic order and no (non magnetic and no soc)-> three bands -> no berry curvature bc degenerate -> no hall conductivity
+
+% Mn3PT: 
+% no SOC: M symmetry broken (essential for emergence of Hall conductivity bc deflection towards left = right -> net force zero)
+% (https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.112.017205)
+

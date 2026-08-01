@@ -1,0 +1,241 @@
+\documentclass[a4paper,12pt,bibliography=totocnumbered, headings=small]{scrbook}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel} %Deutsche Zeichen- und Umbruchsetzung
+\usepackage{amsmath, amssymb,amsfonts} %AMS-TeX-Pakete. NÃ¶tig fÃ¼r die Definition der Mathematik-Umgebung
+\usepackage{bm}
+\usepackage{graphicx} %NÃ¶tig, um Grafiken einbinden zu kÃ¶nnen
+\usepackage[bookmarks,colorlinks=true]{hyperref} %Mittels hyperref lassen sich hyperlinks innerhalb des PDF-Dokumentes benutzen. Beispiel: Mausklick im Inhaltsverzeichnis auf ein Kapitel fÃ¼hrt zum automatischen Sprung in dieses Kapitel
+\usepackage{geometry}
+\usepackage{float}
+%Ein Paket, mit dem sich ohne Probleme mehrseitige PDF-Dokumente ohne \includegraphics-Rumgemache einbinden lassen. Befehl: \includepdf[pages=a-b]{PDFfile.pdf}. Einzelne Seiten, oder auch alle Seiten (Option pages=-) kÃ¶nnen angewÃ¤hlt werden
+%Wenn keine Option angegeben wird, gilt pages=1!
+\usepackage[final]{pdfpages}
+\usepackage{framed, color} %Framed: Paket, mittels dessen ein Rahmen um einen Bereich definiert werden kann. Color: LÃ¤sst Farbdarstellung in Schrift, Hintergrund etc. zu
+\usepackage{scrlayer-scrpage} %Header fÃ¼r die KOMA-script -Klasse
+\usepackage{siunitx} %Ein schÃ¶nes Paket, um Einheiten und physikalische GrÃ¶ÃŸen richtig zu setzen. Z.B.  \SI{2}{\kilo\gram\per\meter\squared}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{bbold}
+\usepackage{subcaption} 
+\usepackage[dvipsnames]{xcolor}
+\usepackage[version=4]{mhchem}
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows.meta,decorations.markings}
+\usepackage[onehalfspacing]{setspace}
+
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=numeric,
+  backref=true,
+  backrefstyle=three
+]{biblatex}
+
+\addbibresource{lit.bib}
+
+
+\usepackage{geometry}
+
+\geometry{
+   left=2.5cm,
+   right=2.5cm,
+   bottom=3.5cm,}
+\usepackage{caption}
+\captionsetup{format=plain, font=small,labelfont=bf}
+%\captionsetup{justification=raggedright,singlelinecheck=false}
+%siunitx-Konfiguration. Damit werden die richtigen Font-Einstellungen erkannt (also beispielsweise fett, kursiv etc.) und damit  ebenfalls die deutsche Zeichensetzung, insbesondere Trennungszeichen, benutzt werden. 
+%Ebenso wird bei SIrange das "`to"' in "`bis"' umgewandelt, bei SIlist das "`and"' in "`und"'
+\sisetup{
+    detect-weight = true,
+    detect-family = true,
+    locale = US,              % or UK, depending on your thesis
+    range-phrase = { to },
+    list-final-separator = {, and },
+    separate-uncertainty = true,
+    per-mode = symbol-or-fraction
+}
+%\SI[per-mode = fraction]{1}{\meter\per\second} erzwingt auch im FlieÃŸtext die Bruchdarstellung.
+
+%Hyperlinks-Setup
+\hypersetup{
+	colorlinks,
+	linktocpage,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+
+\numberwithin{equation}{chapter} % Die Nummerierung von Gleichungen bekommt die jeweilige Section-Nummer als PrÃ¤fix
+
+\setlength{\parindent}{0 mm} %EinrÃ¼cktiefe von neuen AbsÃ¤tzen
+\setlength{\parskip}{2 mm} %Abstand von AbsÃ¤tzen
+
+
+
+\pagestyle{scrheadings}%Kopf und FuÃŸzeilen
+\ohead{\empty} %Header oben links auf linker Seite (ungerade Seitenzahl) und oben rechts auf rechter Seite (gerade Seitenzahl), beinhaltet gruppennummer und VersuchskÃ¼rzel. Im Fall eine einseitigen Dokuments: Header oben rechts
+\ihead{\empty} %Header oben rechts auf linker Seite und oben links auf rechter Seite. Beinhaltet die Namen der Verfasser. Im Fall eine einseitigen Dokuments: Header oben links!
+\ofoot{\thepage} %Footer unten links auf linker und unten rechts auf rechter Seite, enthÃ¤lt die jeweilige Seitenzahl. Im Fall eines einseitigen Elements: Footer unten rechts!
+\cfoot{\empty} %Mittig unten im Footer soll nichts eingetragen werden 
+\ifoot{\empty} %Footer unten rechts auf linker und unten links auf rechter Seite. Hier ebenfalls leer.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Hier kÃ¶nnen die individuellen Anpassungen vorgenommen werden, die sich auf das Titelblatt und die Kopfzeilen auswirken.
+
+
+\newcommand{\PROTOKOLLDATUM}{\today}
+
+
+
+\newcommand{\VerfasserZWEI}{Tim Heinkele}
+\newcommand{\MatNoZWEI}{3693236}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\braket}[2]{\langle #1 \mid #2 \rangle}
+\newcommand{\doubleunderline}[1]{\underline{\underline{#1}}}
+
+
+
+\newlength{\spinlen}
+\setlength{\spinlen}{6mm}
+\def\halflen{3mm}
+\tikzset{
+  mid arrow/.style={
+    postaction={
+      decorate,
+      decoration={
+        markings,
+        mark=at position .6 with {\arrow{Stealth[scale=1.3]}}
+      }
+    }
+  }
+}
+
+
+\tikzset{
+  spin/.style={->, ultra thick, >=Stealth}
+}
+\newcommand{\centerspin}[3][]{%
+  \begin{scope}[shift={#2}, rotate=#3]
+    \draw[spin,#1] (-\spinhalf,0) -- (\spinhalf,0);
+  \end{scope}%
+}
+
+\newcommand{\BETREUER}{Dr. Jessica  Almeida}
+\definecolor{pastelgreen}{HTML}{2E8B57}
+\definecolor{pastelblue}{HTML}{2F84FB}
+\definecolor{pastelred}{HTML}{FC6061}
+\definecolor{brown}{HTML}{964D1E}
+
+
+
+
+
+
+
+\begin{document}
+
+\thispagestyle{empty}
+
+
+\begin{titlepage}
+
+\begin{center}
+\vspace*{17mm}
+\includegraphics[width=0.6\linewidth]{Pictures/unistuttgart_logo_englisch_cmyk-01.png}
+
+
+\vspace{1cm}
+\large{Institute for Theoretical Physics III} \\
+\vspace{2cm}
+\normalsize{Bachelor's thesis} \\
+\vspace{1cm}
+\Huge{Altermagnetism on the Kagome lattice}\\% \Huge \huge \Large \normalsize \Small usw. bestimmt die SchriftgrÃ¶ÃŸe.
+\vspace{1cm}% Abstand
+\normalsize{Tim Heinkele} \\
+\vspace{5mm} 
+\normalsize{\today}\\
+\vspace{6cm}
+\normalsize{Supervised by}\\
+\normalsize{\BETREUER}
+\end{center}
+
+
+
+
+\end{titlepage}
+
+
+\newpage
+\thispagestyle{empty}
+~
+\newpage
+
+\chapter*{Declaration}
+I hereby declare, that I have written the Bachelor's thesis by myself at the Institute of Theoretical Physics under supervision of Dr. Jessica Almeida and that all sources are signposted and cited. I used OpenAI's ChatGPT to assist in developing and modifying the underlying code of numerical computations. The content and conclusions are my own work. The Bachelor's thesis has not been submitted elsewhere. Lastly, I insure that the printed copy is identical to the electronic version.
+\newpage
+
+\thispagestyle{empty}
+
+\chapter*{Abstract}
+\input{Abstract}
+\newpage
+\thispagestyle{empty}
+
+\chapter*{Zusammenfassung}
+\newpage
+\thispagestyle{empty}
+
+ 
+\tableofcontents
+\thispagestyle{empty}
+
+
+\newpage
+\thispagestyle{empty}
+~
+\newpage
+
+\clearpage 
+\setcounter{page}{1}
+
+\input{1Introduction}
+
+\input{2Theory}
+
+\input{3Results}
+
+\input{4Conclusion and Outlook}
+
+\input{}
+
+\FloatBarriers
+\thispagestyle{empty}
+\printbibliography
+
+\newpage
+
+\clearpage
+\appendix
+\chapter{Appendix}
+\section{Simplification for the hopping Hamiltonian $H_\text{hop.}$}
+
+\input{appendixA} % filename in curly brackets
+\section{Unitary transformation $D(\mathbf{k})$ of the Hamiltonian $\mathcal{H}(\mathbf{k})$}
+\input{appendixB} % filename in curly brackets**
+\section{Name of Appendix C}
+\input{appendixC}
+\clearpage
+
+\thispagestyle{empty}
+~
+\newpage
+
+
+\chapter*{Acknowledgments}
+
+\end{document}
