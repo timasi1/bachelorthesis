@@ -1,34 +1,41 @@
-
+\section{Simplification for the hopping Hamiltonian $H_\text{hop.}$}
 \label{chapter: AppendixA}
 
 To further simplify the hopping Hamiltonian $H_\text{hop.}$, we begin by showing 
 \begin{align}
-    (\mathbf{d}_i \cdot\bm{\hat{\sigma}})² &= (d_x \hat{\sigma}_x + d_y \hat{\sigma}_y + d_z \hat{\sigma}_z)² \\
-    &= (d_x² + d_y² + d_z²)\hat{I}_3 + d_xd_y\{\hat{\sigma}_x , \hat{\sigma}_y\} + d_yd_z\{\hat{\sigma}_y , \hat{\sigma}_z\} + d_xd_z\{\hat{\sigma}_x , \hat{\sigma}_z\} = \hat{I}_2,
+    (\mathbf{d}_i \cdot\bm{\hat{\sigma}})^2 &= (d_x \hat{\sigma}_x + d_y \hat{\sigma}_y + d_z \hat{\sigma}_z)^2 \nonumber\\
+    &= (d_x^2 + d_y^2 + d_z^2)\hat{I}_2 + d_xd_y\{\hat{\sigma}_x , \hat{\sigma}_y\} + d_yd_z\{\hat{\sigma}_y , \hat{\sigma}_z\} + d_xd_z\{\hat{\sigma}_x , \hat{\sigma}_z\} = \hat{I}_2,
 \end{align}
-where $\hat{I}_2$ denotes the unity matrix in two dimensions, following from basic operations with the Pauli-matrices, where $\{\hat{A} , \hat{B}\} = \hat{A}\hat{B}+\hat{B}\hat{A}$ and $|d_i| = 1$.
+where $\hat{I}_2$ denotes the two-dimensional identity matrix, following from basic operations with the Pauli matrices, where $\{\hat{A} , \hat{B}\} = \hat{A}\hat{B}+\hat{B}\hat{A}$, $|d_i| = 1$ and $\{\hat{\sigma}_i, \hat{\sigma}_j\} = 2\delta_{ij}\hat{I}_2$.
 Next, we can use Euler's formula 
 \begin{align}
-    e^{i\Phi(\mathbf{d_i}\cdot\bm{\hat{\sigma}})} = \sum_k \frac{(i\Phi)^{2k}}{(2k)!}\hat{I}_3 + \sum_k  \frac{(i\Phi)^{2k+1}}{(2k+1)!} (\mathbf{d_i}\cdot\bm{\hat{\sigma}}) = \cos(\Phi)\hat{I}_3 + i \sin(\Phi) (\mathbf{d_i}\cdot\bm{\hat{\sigma}})
+    e^{i\Phi(\mathbf{d}_i\cdot\bm{\hat{\sigma}})} &= \sum_k \frac{(i\Phi)^{2k}}{(2k)!}\hat{I}_3 + \sum_k  \frac{(i\Phi)^{2k+1}}{(2k+1)!} (\mathbf{d}_i\cdot\bm{\hat{\sigma}}) = \cos(\Phi)\hat{I}_2 + i \sin(\Phi) (\mathbf{d}_i\cdot\bm{\hat{\sigma}})\nonumber\\
+    &= \frac{1}{\sqrt{t^2+ \lambda^2}}\left\{t\hat{I}_2 - i\lambda (\bm{d}_i \cdot \bm{\hat{\sigma}}) \right\}.
     \label{eq: hamilton exp}
 \end{align}
-or analogously for the primed parameters as $\Phi'$.
-Thus, with Eq. \eqref{eq: hamilton exp}, we gather for the hopping Hamiltonian consisting of the Rashba term as in equation \eqref{eq:Rashba_Hamiltonian_soc} and the pure hopping term as in Eq. \eqref{eq: 1_hamiltonian_hopping}
+
+Here, we define $\cos(\Phi) = t/\sqrt{t^2 + \lambda^2}$ and $\sin(\Phi) = -\lambda/\sqrt{t^2 + \lambda^2}$. Analogously for the primed parametersm the relation is given by
+\begin{align}
+    e^{i\Phi'(\bm{d}_i\cdot \bm{\hat{\sigma}})} = \frac{1}{\sqrt{t'^2 + \lambda^2}} \left\{t'\hat{I}_2 - i\lambda' (\bm{d}_i \cdot \bm{\hat{\sigma}}) \right\}.
+    \label{eq: hamiltonian exp2}
+\end{align}
+with $\cos(\Phi') = t'/\sqrt{t'^2 + \lambda'^2}$ and $\sin(\Phi') = -\lambda'/\sqrt{t'^2 + \lambda'^2}$.
+Thus, with Eqs.~\eqref{eq: hamilton exp} and \eqref{eq: hamiltonian exp2}, we obtain
 \begin{align}
     H_{\text{hop.}}
 &=-
 \sum_{\mathbf R}
 \Bigg\{
 \sum_{i=1}^{3}
-c_{\mathbf R,\beta_i}^{\dagger}
-\left[t'I_3 - i\lambda'(\mathbf d_i\!\cdot\!\boldsymbol{\sigma})\right]
-c_{\mathbf R,\alpha_i}
+\mathbf{c}_{\mathbf R,\beta_i}^{\dagger}
+\left[t'\hat{I}_2 - i\lambda'(\mathbf d_i\!\cdot\!\boldsymbol{\sigma})\right]
+\mathbf{c}_{\mathbf R,\alpha_i}
 \nonumber\\
 & \qquad\qquad+
 \sum_{i=1}^{3}
-c_{\mathbf R-\mathbf a_i,\beta_i}^{\dagger}
-\left[t I_3 - i\lambda(\mathbf d_i\!\cdot\!\boldsymbol{\sigma})\right]
-c_{\mathbf R,\alpha_i}
+\mathbf{c}_{\mathbf R-\mathbf a_i,\beta_i}^{\dagger}
+\left[t \hat{I}_2 - i\lambda(\mathbf d_i\!\cdot\!\boldsymbol{\sigma})\right]
+\mathbf{c}_{\mathbf R,\alpha_i}
 \Bigg\}
 +\mathrm{H.c.} \nonumber\\
 &= -
@@ -36,17 +43,17 @@ c_{\mathbf R,\alpha_i}
 \Bigg\{
 \sqrt{t'^2+\lambda'^2}
 \sum_{i=1}^{3}
-c_{\mathbf R,\beta_i}^\dagger
+\mathbf{c}_{\mathbf R,\beta_i}^\dagger
 e^{i\Phi'(\mathbf d_i\cdot\boldsymbol\sigma)}
-c_{\mathbf R,\alpha_i} \nonumber\\
+\mathbf{c}_{\mathbf R,\alpha_i} \nonumber\\
 & \qquad\qquad+
 \sqrt{t^2+\lambda^2}
 \sum_{i=1}^{3}
-c_{\mathbf R-\mathbf a_i,\beta_i}^\dagger
+\mathbf{c}_{\mathbf R-\mathbf a_i,\beta_i}^\dagger
 e^{i\Phi(\mathbf d_i\cdot\boldsymbol\sigma)}
-c_{\mathbf R,\alpha_i}
+\mathbf{c}_{\mathbf R,\alpha_i}
 \Bigg\}
 +\mathrm{H.c.}.
 \label{eq: appendix hamiltonian}
 \end{align}
-Here, we define $\cos(\Phi) = t/\sqrt{t^2 + \lambda^2}$ and $\sin(\Phi) = -\lambda/\sqrt{t^2 + \lambda^2}$ and respecively for the primed parameters $\cos(\Phi') = t'^2/\sqrt{t'^2 + \lambda'^2}$ and $\sin(\Phi') = -\lambda'/\sqrt{t'^2 + \lambda'^2}$.
+for the hopping Hamiltonian combining the Rashba and spin-independent hopping terms as in  Eqs.~\eqref{eq:Rashba_Hamiltonian_soc} and \eqref{eq: 1_hamiltonian_hopping}.

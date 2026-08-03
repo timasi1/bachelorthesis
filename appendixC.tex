@@ -1,8 +1,8 @@
 
-In this Chapter we want to compare kagome lattices with no magnetic texture $m_0=0$ and a homogenous one, as depicted in Fig. \ref{fig: magnetic texture homogenous}, to get an idea where the bands stem from and why the used model can be approved. 
-Firstly, we will begin to check the sign convention chosen in Eq. \ref{eq: bloch-Hamiltonian} by using a homogenous magnetic texture, as depicted in \ref{fig: magnetic texture homogenous}. 
+In this section, the kagome lattices with no magnetic texture $m_0=0$ and a homogeneous one, as depicted in Fig. \ref{fig: magnetic texture homogenous}, are compared to get an idea where the bands stem from and why the used model can be validated. 
+First, we check the sign convention chosen in Eq.~\ref{eq: bloch-Hamiltonian} by using a homogeneous magnetic texture, as depicted in Fig.~\ref{fig: magnetic texture homogenous}. 
 
-\begin{figure}[htbp]
+\begin{figure}[tbhp]
     \centering
     \begin{tikzpicture}[scale=1.5]
     
@@ -59,33 +59,33 @@ Firstly, we will begin to check the sign convention chosen in Eq. \ref{eq: bloch
       }
 
     \end{tikzpicture}
-    \caption{Depicted is an homogenous magnetic texture}
+    \caption{The homogeneous magnetic texture on a kagome lattice with the mirror symmetry plane $\mathcal{M}$.}
     \label{fig: magnetic texture homogenous}
 \end{figure}
-Then, by computing the Fermi-surface spin texture for the resulting Hamiltonian in the nonbreathing limit, Fig. \ref{fig:homogenous-nonbreathing} is obtained. Thus, the spins align for higher energies, as discussed in Section \ref{section: tightbinding} and therefore confirming our sign definition. Note, that with SOC it is possible to achieve aligning spins for lower energies for $\lambda,\lambda'\gg m_0$ and spins having also $y$-components. \\
+Then, by computing the Fermi-surface spin texture for the resulting Hamiltonian in the nonbreathing limit, Fig. \ref{fig:homogenous-nonbreathing} is obtained. Thus, the spins align for higher energies along the magnetic order, as discussed in section \ref{section: tightbinding} and thereby confirming the introduced sign convention. Note that with SOC it is possible to achieve the opposite for lower energies for $\lambda,\lambda'\gg m_0$ and spins gathering also $y$-components.  \\
 
-\begin{figure}[H]
+\begin{figure}[tbhp]
     \centering
     \includegraphics[
         width=\linewidth
     ]{Appendix/homogenous/homogenous_nonbreathing.pdf}
-    \caption{\textbf{The computed Results by using the tight-binding Hamiltonian \eqref{eq: bloch-Hamiltonian} for the homogenous magnetic texture, as depicted in Fig. \ref{fig: magnetic texture homogenous} in the nonbreathing-limit.} (a) Band structure along the high-symmetry points $\Gamma$-$K$-$M$, (b) The in-plane Fermi surface spin textures for the Fermi-level µ (c),(d) The computed Berry curvatures for no SOC, or with SOC respectively, with using the Fukui-Hatsugai-Suzuki method \eqref{eq: berry curv comp}.}
+    \caption{\textbf{The computed results by using the tight-binding Hamiltonian \eqref{eq: bloch-Hamiltonian} for the homogeneous magnetic texture, as depicted in Fig. \ref{fig: magnetic texture homogenous} in the nonbreathing-limit without and with SOC, respectively.} (a) Band structure along the high-symmetry path $\Gamma$-$K$-$M$, (b) The in-plane Fermi surface spin textures for the Fermi-level $\mu$.}
     \label{fig:homogenous-nonbreathing}
 \end{figure}
 
-Lastly, the band structures of no magnetic texture $m_0=0$ in Fig. \ref{fig:homogenous-notexture} (a), (b) with the homogenous one, as earlier defined, depicted in Fig. \ref{fig:homogenous-notexture} (c), (d) are compared.
-For $t'= \lambda = \lambda'=0$, the nonmagnetic Kagome lattice has two flat bands. The flatness stems from the fact, that the electrons cannot propagate in the lattice because of a missing hopping on the upward-facing triangle. One might expect three flat bands, however it can easily be approved by solving the Hamiltonian
+Finally, Figs.~\ref{fig:homogenous-notexture} compare the band structures (a),(b) without a magnetic texture with thos for the (c),(d) homogeneous texture. 
+For $t'= \lambda = \lambda'=0$, the nonmagnetic kagome lattice has two flat bands, with one of them being orbital degenerate. The flatness stems from the fact that the electrons cannot propagate in the lattice because of a missing hopping on the upward-facing triangles. One might expect three flat bands, however it can easily be verified by solving the Hamiltonian
 \begin{align}
-    \frak{H}(\mathbf{k}) = \begin{pmatrix}
-        0&  t e^{-i\mathbf{k}\cdot \mathbf{{a}_1}} &  t e^{-i\mathbf{k}\cdot \mathbf{{a}_3}} \\
-         t e^{-i\mathbf{k}\cdot \mathbf{{a}_1}} & 0 &   t e^{-i\mathbf{k}\cdot \mathbf{{a}_2}} \\
-       t e^{-i\mathbf{k}\cdot \mathbf{{a}_3}} &  t e^{-i\mathbf{k}\cdot \mathbf{{a}_2}} & 0 
-    \end{pmatrix},
+    \frak{H}(\mathbf{k}) = t\begin{pmatrix}
+        0&   e^{-i\mathbf{k}\cdot \mathbf{a}_1} &   e^{i\mathbf{k}\cdot \mathbf{a}_3} \\
+          e^{i\mathbf{k}\cdot \mathbf{a}_1} & 0 &    e^{-i\mathbf{k}\cdot \mathbf{a}_2} \\
+        e^{-i\mathbf{k}\cdot \mathbf{a}_3} &   e^{i\mathbf{k}\cdot \mathbf{a}_2} & 0 
+    \end{pmatrix} + \mathcal{H}_\text{M},
 \end{align}
-following from $\hat{t}_i = t_i \hat{I}_2 = \hat{t}_i$, $\hat{t}' = t'\hat{I}_2 = 0$ and switching the basis to $\left(c_{\mathbf{k}A}^\dagger, c_{\mathbf{k}B}^\dagger, c_{\mathbf{k}C}^\dagger\right)$, dropping out the spin-dependancy because of Kramer's degeneracy. Solving the matrix with the earlier defined Bravais-lattice vectors $\mathbf{a}_i$, the eigenvalues $E_+ = 2t$ and the twofold degenerate $E_- = -t$, which is an orbital degeneracy, are obtained. Therefore, the upper band is twofold degenerate and the lower one fourfold degenerate. 
-Now, by adding SOC with $\lambda'=t'=0$, we gather three flat bands, occuring because the orbital degeneracy is broken. Note, that the bands are still Kramer's degenerate. 
+following from $\hat{t}_i = t \hat{I}_2$ and $\hat{t}' = t'\hat{I}_2 = 0$ and removing the spin dependence due to a spin independent Hamiltonian. Solving the matrix with the earlier defined cell-connection vectors $\mathbf{a}_i$, which are triangular ordered, the eigenvalues $E_+ = 2t$ and the twofold degenerate $E_- = -t$ are obtained. Therefore, the upper band is twofold degenerate and the lower one fourfold degenerate, including an orbital degeneracy. 
+Now, by adding SOC with $\lambda'=t'=0$, we obtain three flat bands, occurring due to a broken orbital degeneracy. Note that the bands are still Kramers-degenerate. 
 
-\begin{figure}[H]
+\begin{figure}[tbhp]
     \centering
     \begin{subfigure}[t]{0.85\textwidth}
         \centering
@@ -102,13 +102,15 @@ Now, by adding SOC with $\lambda'=t'=0$, we gather three flat bands, occuring be
         ]{Appendix/no texture vs homogenous/texture.pdf}
         
     \end{subfigure}
-    \caption{\textbf{The computed Band structure along the high-symmetry points $\Gamma$-$K$-$M$ for the Hamiltonian in Eq. \eqref{eq: bloch-Hamiltonian}.} Results for no magnetic texture (a) without SOC (b) with SOC and for an homogenous magnetic texture depicted in Fig. \ref{fig: magnetic texture homogenous} (c) without SOC and (d) with SOC.}
+    \caption{\textbf{The computed Band structure along the high-symmetry points $\Gamma$-$K$-$M$ for the Hamiltonian in Eq.~\eqref{eq: bloch-Hamiltonian}.} Results for no magnetic texture (a) without SOC (b) with SOC and for an homogenous magnetic texture depicted in Fig.~\ref{fig: magnetic texture homogenous} (c) without SOC and (d) with SOC.}
     \label{fig:homogenous-notexture}
 \end{figure}
 
-By adding a magnetic texture the Kramer's degeneracy is broken and therefore there are twice as many bands.
+By adding a magnetic texture, the Kramers degeneracy is broken and therefore there are twice as many bands, due to the magnetic texture breaking time-reversal and the lack of an antiunitary symmetry protecting the degeneracy.
 
-By now adding hopping on upward-facing triangles, so $t'\neq0$ or $\lambda'\neq 0$, dispersive bands are obtained, as seen in \ref{fig:homogenous-notexture} (b), (d). For no SOC and no magnetic texture, Kramer pairs are expected, leading to up to three bands as observed.  It is interesting to note, that there still exists a flat band, or two for the magnetic lattice, occuring through destructive interference by the geometrical structure of the kagome lattice. All different cases are not analysed in detail because, we expect for all of them six dispersive bands.
+Furthermore, by adding hopping on upward-facing triangles, so $t'\neq0$ or $\lambda'\neq 0$, dispersive bands are obtained, as seen in Fig.~\ref{fig:homogenous-notexture} (b), (d). For no SOC and no magnetic texture, Kramers pairs are expected, resulting in three bands, as observed.  These bands are split by adding SOC or a magnetic texture, therefore resulting in six dispersive bands.
+It is interesting to note that there still exists a flat band, or one degenerate flat band for the magnetic lattice. This occurs through the lattice and magnetic geometry, leading to destructive interference. We will not address this further, due to no additional gained knowledge. 
+All different cases are not analyzed in detail because we expect for all of them up to six dispersive bands, where degeneracies may occur due to the previously claimed reason. 
 
 
 
