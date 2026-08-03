@@ -10,7 +10,7 @@ In this chapter, the tight-binding model for a kagome lattice, altermagnetism an
 % In this work, a electron tight-binding Hamiltonian with pure Rashba-Spin-orbit coupling (Rashba-SOC) and a magnetic texture is being used to compute the electronic spectra and further properties, where the electrons hop between different $\ce{Mn}$ sites with varying magnetic moments, defining the magnetic texture. 
 With an electronic tight-binding model, the motion of electrons in a crystal structure can be described. For the compounds considered here, the relevant crystallographic plane forms a kagome lattice, shown in Fig.~\ref{fig: kagome_model_definitions}.
 
-The total Hamiltonian $H = H_0+ H_\text{R}+ H_\text{M}$, describing the system, consists of three parts, where $H_0$ describes the nearest-neighbor hopping, $H_\text{R}$ the pure Rashba spin-orbit coupling (hereafter abbreviated as SOC) and $H_\text{M}$ the local magnetic exchange term. \\
+The total Hamiltonian $H = H_0+ H_\text{R}+ H_\text{M}$, describing the system, consists of three parts, where $H_0$ describes the nearest-neighbor hopping, $H_\text{R}$ the pure Rashba spin-orbit coupling (hereafter abbreviated as Rashba-SOC) and $H_\text{M}$ the local magnetic exchange term. \\
 The hopping Hamiltonian is defined as
 \begin{align}
 H_0 = -\sum_{\mathbf R} \Bigg\{& t' \sum_{i=1}^{3} \mathbf{c}_{\mathbf R,\beta_i}^{\dagger} \mathbf{c}_{\mathbf R,\alpha_i} 
@@ -135,7 +135,7 @@ Here, the hopping amplitudes are defined as $t_i=t$ for the downward and $t'_i=t
     \caption{Kagome lattice showing the definitions of (a) the hopping amplitudes $t_i$ and the cell-connection vectors $\mathbf{a}_i$ and (b) the SOC bonding orientation vectors $\mathbf{d}_i$.}
     \label{fig: kagome_model_definitions}
 \end{figure}
-The Pauli matrices later used below are defined as
+The Pauli matrices used below are defined as
 \begin{align}
     \bm{\hat{\sigma}} = \begin{pmatrix}
         \hat{\sigma}_x\\ \hat{\sigma}_y\\ \hat{\sigma}_z
@@ -177,23 +177,22 @@ i\sum_{\mathbf R}
 \label{eq:Rashba_Hamiltonian_soc}
 \end{align}
 with $\bm{\hat{\sigma}}$ defined in Eq. \eqref{eq: pauli matrices}. 
-Here, the bond-orientation vectors, denote $\mathbf{d}_1=(\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$, $\mathbf{d}_2=(0,\,1,\, 0)^{\mathrm T}$ and 
-$\mathbf{d}_3=(-\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$ and the cell-connection vectors, are defined as $\mathbf{d}_i = \mathbf{\hat{e}}_z\times\mathbf{a_i}$ with $\mathbf{a}_1  = (-1/2,\,-\sqrt{3}/2,\, 0)^{\mathrm T}$, $\mathbf{a}_2 = (1,\,0)^{\mathrm T}$ and $\mathbf{a}_3 = (-1/2,\,\sqrt{3}/2,\, 0)^{\mathrm T}$.
-The defined vectors are shown in Fig.~\ref{fig: kagome_model_definitions} .  The dashed bonding orientation vectors in Fig.~\ref{fig: kagome_model_definitions}~(b) represent the reverse hopping direction associated with the Hermitian-conjugate terms. \\
+Here, the cell-connection vectors $\mathbf{a}_i$, are defined as $\mathbf{a}_1  = 2a(-1/2,\,-\sqrt{3}/2,\, 0)^{\mathrm T}$, $\mathbf{a}_2 = 2a(1,\,0)^{\mathrm T}$ and $\mathbf{a}_3 = 2a(-1/2,\,\sqrt{3}/2,\, 0)^{\mathrm T}$, where $a$ is the lattice constant. The bond-orientation vectors are defined as $\mathbf{d}_i = \mathbf{\hat{e}}_z\times\mathbf{a}_i/||\mathbf{a}_i||$, which denote $\mathbf{d}_1=(\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$, $\mathbf{d}_2=(0,\,1,\, 0)^{\mathrm T}$ and $\mathbf{d}_3=(-\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$.
+The defined vectors are shown in Fig.~\ref{fig: kagome_model_definitions}. The dashed bonding orientation vectors in Fig.~\ref{fig: kagome_model_definitions}~(b) represent the reverse hopping direction associated with the Hermitian-conjugate terms. \\
 Rashba-SOC requires structural inversion asymmetry normal to the $xy$-plane, as stated in Ref. \cite{Manchon2015}, and therefore can, for example, be induced by applying an out-of-plane electrical field or by stacking polar planes as achieved by e.g. coupling the system to a superconductor, treating both sides $z$ and $-z$ differently, as executed in Ref.~\cite{Quelle3}. Therefore, Rashba-SOC occurs if the two sides of the plane are treated inequivalently.
-Note that we might also expect intrinsic SOC in the examined kagome materials. Intrinsic SOC can be added on the same nearest-neighbor bonds as in Eq.~\eqref{eq:Rashba_Hamiltonian_soc} by setting $\mathbf{d}_i = \bm{\hat{e}}_z$, where the reverse hopping bonds carry an opposite sign due to the Hermitian conjugate. Hereafter, only pure Rashba-SOC is used. 
+Note that we might also expect intrinsic SOC in the examined kagome materials. Intrinsic SOC can be added to the same nearest-neighbor bonds as in Eq.~\eqref{eq:Rashba_Hamiltonian_soc} by setting $\mathbf{d}_i = \bm{\hat{e}}_z$, where the reverse hopping bonds carry an opposite sign due to the Hermitian conjugate. Hereafter, only pure Rashba-SOC is used. 
 \\
 In detail, the Rashba-SOC Hamiltonian is created by modifying the general Hamiltonian
 \begin{align}
-    H_\text{R} = (\alpha_R/\hbar) \left(\mathbf{\hat{e}}_z\times \mathbf{p}\right) \cdot \bm{\sigma}
+    H_\text{R} = (\alpha_R/\hbar) \left(\mathbf{\hat{e}}_z\times \mathbf{p}\right) \cdot \bm{\sigma},
     \label{eq: Rashba_Hamiltonian_standard}
 \end{align}
-as in Ref. \cite{Bychkov1984OscillatoryEA}.
-By using a discretization on the lattice of the continuous Hamiltonian and using second quantization, analogously as in \cite{PhysRevB.94.184402}, the original Hamiltonian \eqref{eq:Rashba_Hamiltonian_soc} is achieved. Here, we use $\mathbf{p}\to \hat{\mathbf{p}} = -i\hbar\bm{\nabla}$ and obtain 
+as given in Ref. \cite{Bychkov1984OscillatoryEA}.
+By using a discretization on the lattice of the continuous Hamiltonian in Eq.~\eqref{eq: Rashba_Hamiltonian_standard} and using second quantization, analogously as in \cite{PhysRevB.94.184402}, the original Hamiltonian \eqref{eq:Rashba_Hamiltonian_soc} is achieved. Here, we use $\mathbf{p}\to \hat{\mathbf{p}} = -i\hbar\bm{\nabla}$ and obtain 
 \begin{align}
     H_\text{R} = -i\alpha_\text{R}(\mathbf{\hat{e}}_z \times \bm{\nabla})\cdot \bm{\hat{\sigma}}.
 \end{align}
-Lastly, defining a finite difference $\bm{{\delta}}_{ij}$ along directed bonds, produces 
+Lastly, defining a finite difference $\bm{{\delta}}_{ij} = \mathbf{a}_i/||\mathbf{a}_i||$ along directed bonds, produces 
 \begin{align}
     H_\text{R} = i \sum_{\langle ij\rangle} \lambda_{ij} \mathbf{c}_i^\dagger [(\bm{\hat{e}}_{z}\times \bm{{\delta}}_{ij}) \cdot \bm{\hat{\sigma}}] \mathbf{c}_j + \text{H.c.}.
 \end{align}
@@ -205,7 +204,7 @@ The magnetic texture Hamiltonian $H_\text{M}$ is defined as
     H_\text{M} = -m_0 \sum_\mathbf{R} \sum_\alpha \mathbf{c}_{\mathbf{R},\alpha}^\dagger \left( \mathbf{m}_\alpha\cdot \mathbf{\hat{\sigma}}\right) \mathbf{c}_{\mathbf{R},\alpha},
     \label{eq: hamiltonian magnetic texture}
 \end{align}
-where the unit vector $\mathbf{m}_\alpha$ specifies the local magnetic texture on the sublattices $\alpha$ with the strength $m_0\geq 0$. It can easily be seen that this term is also Hermitian. The sign is defined, that anti-aligning spins with the magnetic texture are energetically higher. This convention is later switched by changing the sign, and therefore later anti-aligning spins lie at lower energies.
+where the unit vector $\mathbf{m}_\alpha$ specifies the local magnetic texture on the sublattices $\alpha$ with the strength $m_0\geq 0$. It can easily be seen that this term is also Hermitian due to the Hermiticy of the Pauli matrices. The sign is defined, that anti-aligning spins with the magnetic texture are energetically higher. This convention is later switched by changing the sign, and therefore later anti-aligning spins lie at lower energies.
 The local magnetic texture is defined as $\mathbf{m}_\alpha = \left                [\cos(\varphi_\alpha)\sin(\vartheta_\alpha), \,\sin(\varphi_\alpha)\sin(\vartheta_\alpha), \,\cos(\vartheta_\alpha)\right]^T$, where $\varphi_\alpha$ depends on the material. In this work, we set $\vartheta_\alpha = \pi/2$ because we only use coplanar magnetic exchange fields.\\
 
 
