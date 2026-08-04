@@ -1,7 +1,8 @@
 \chapter{Results}
 \label{chapter:Results}
-In this chapter, we analyze four different magnetic textures for their electronic-structure properties. The numerical results are compared with our symmetry-based predictions. The physically trivial cases, in which the hopping parameter set for one facing triangle is zero are not discussed due to the Hamiltonian being independent of $\mathbf{k}$. This can be seen by setting $t=\lambda=0$ in Eq.\eqref{eq: bloch-Hamiltonian}, making the Hamiltonian independent of $\mathbf{k}$, which produces a vanishing Berry curvature and flat bands. This stems from the electrons not being able to propagate in the full lattice due to a decomposition of the lattice into disconnected unit cells. 
-The nonbreathing limit and the breathing case are analyzed separately. Note that the case $t'=0$ and $t\neq 0$, or vice versa $t=0$ and $t' \neq 0$, is already included in the breathing lattice and therefore are not analyzed separately.
+In this chapter, we analyze four different magnetic textures for their electronic-structure properties. The numerical results are compared with our symmetry-based predictions. The physically trivial cases, in which the hopping parameter set for one facing triangle is zero, are not discussed because the Hamiltonian is then independent of $\mathbf{k}$. This can be seen by setting $t=\lambda=0$, or equivalently $t'=\lambda'=0$ in Eq.~\eqref{eq: bloch-Hamiltonian}, making the Hamiltonian independent of $\mathbf{k}$, which produces a vanishing Berry curvature and flat bands. 
+This stems from the electrons not being able to propagate in the full lattice due to a decomposition of the lattice into disconnected unit cells. 
+The nonbreathing limit and the breathing case are analyzed separately. Note that the case $t'=0$ and $t\neq 0$, or vice versa $t=0$ and $t' \neq 0$, is already included in the breathing lattice and therefore is not analyzed separately.
 \section{The S-type altermagnet \ce{Mn3Pt} with its T1 and T2 phases}
 
 \subsection{Magnetic structure of the T1 and T2 phases of \ce{Mn3Pt}}
@@ -148,7 +149,7 @@ The manganese atoms occupy the face-centered sites, and a $(111)$ plane forms a 
 
 
 The $\mathcal{TM}$ and $\mathcal{M}$ planes, as depicted in Fig.~\ref{fig: magnetic texture Mn3Pt}, impose constraints on the properties of the material according to Eqs.~\eqref{eq: symmetry_TM} and \eqref{eq: symmetry_M}, respectively. Note that for the $\mathcal{M}$ plane, the $[C_{2\hat{s}}||\sigma_v]$-symmetry is equivalent and therefore holds for SOC. 
-By contrast the $\mathcal{TM}$ plane may break for SOC, as has to be shown in a further study, where Eq.~\eqref{eq: TM symmetry prove eq} has to be proven with the Hamiltonian of Eq.~\eqref{eq: bloch-Hamiltonian} for the magnetic texture of the T1 phase. 
+By contrast, the $\mathcal{TM}$ plane may break for SOC, which must be shown in a further study, where Eq.~\eqref{eq: TM symmetry prove eq} has to be proven by applying the Hamiltonian of Eq.~\eqref{eq: bloch-Hamiltonian} for the magnetic texture of the T1 phase. 
 
 !!!!!!!!
 
@@ -180,7 +181,7 @@ Figs.~\ref{fig:Mn3Pt1-nonbreathing} (a) and (b) show the computed band structure
 The Berry curvature is finally computed by using the Fukui-Hatsugai-Suzuki method, explained in Section~\ref{section: Berrycurv}, where for bands with degeneracies, the composite Berry curvature is computed. The selected band multiplets are indicated in the Berry curvature panels and are mostly treated consistently across the parameter sets. Thus, it may occur that a band multiplet is chosen, even if the bands in it are not degenerate. However, if the band multiplet is isolated, neither the value of its composite Chern number nor, more importantly, the symmetry constraints on its composite Berry curvature change.\\
 
 In the nonbreathing limit, we expect the energy, the spin texture, and Berry curvature to be even in $\mathbf{k}$, which is confirmed in Fig.~\ref{fig:Mn3Pt1-nonbreathing}. 
-The $\mathcal{TM}$ planes are visible with SOC, which does not match our expectations. 
+The $\mathcal{TM}$ planes are visible with SOC, indicating that the operation may be conserved for SOC, as has to be proven in a further study. 
 !!!!!!!!! \\
 In the case without SOC, the $\Theta_s[C_{2z}||E]$-symmetry leads to an odd Berry curvature and, together with the evenness imposed by $[E||C_{2z}]$, forces the Berry curvature to vanish. Thus, the Chern number also vanishes. 
 In the nonbreathing limit, as well as in the breathing lattice, a $C_{3z}^s$-symmetry can be observed, due to the magnetic texture being invariant under the action of the symmetry.
@@ -230,9 +231,7 @@ For the breathing kagome lattice, we expect the $[E||C_{2\hat{z}}]$-symmetry to 
 
 We also observe a $C_{3z}^s$-symmetry as expected.
 
-!!!!!!!!!!!!!!!!!!! TM SOC?
-
-Lastly, we observe $[C_{2\hat{s}}||\sigma_v]$ in the absence of SOC and the $\mathcal{TM}$ planes, depicted in Fig.~\ref{fig: magnetic texture Mn3Pt} (a). The $\mathcal{TM}$-typical behavior is given by Eq.~\eqref{eq: symmetry_TM} and is also observed in extensive numerical calculation in the presence of SOC. Therefore, we expect the material to have conserved $\mathcal{TM}$ planes. This needs to be confirmed theoretically in a future work according to Eq.~\eqref{eq: TM symmetry prove eq}.  
+Lastly, we observe $[C_{2\hat{s}}||\sigma_v]$ in the absence of SOC and the $\mathcal{TM}$ planes, depicted in Fig.~\ref{fig: magnetic texture Mn3Pt} (a). The $\mathcal{TM}$-typical behavior is given by Eq.~\eqref{eq: symmetry_TM} and is also observed in a numerical calculation in the presence of SOC. Therefore, we observe the material to have conserved $\mathcal{TM}$ planes, which needs to be confirmed theoretically in a future work, as mentioned for the nonbreathing limit, according to Eq.~\eqref{eq: TM symmetry prove eq}.  
 % Lastly, we note that the $\mathcal{TM}$-plane is visible for all chosen cases, however, by using numerical calculations, we show, with the use of OpenAI's 'ChatGPT' for helping with the creation of the code, that the $\mathcal{TM}$-symmetry is actually slightly broken for SOC, as expected. \\
 % For this, we use $U_{TM} \mathfrak
 % {H}(\mathbf{k})^*U_{TM} = \mathfrak
@@ -293,10 +292,11 @@ Similar symmetry arguments for the occurrence of degeneracies, as given in Eqs.~
     \caption{\textbf{Tight-binding results for the T2 phase of \ce{Mn3Pt} in the nonbreathing limit, with the magnetic texture shown in Fig.~\ref{fig: magnetic texture Mn3Pt} (b), obtained using the Bloch Hamiltonian in Eq.~\eqref{eq: bloch-Hamiltonian}.} (a) Electronic band structure along the high-symmetry path $\Gamma$--$M$--$K$. (b) In-plane spin texture on the Fermi surface at the chemical potential $\mu$. (c,d) Berry curvature calculated without and with spin--orbit coupling (SOC), respectively, using the Fukui--Hatsugai--Suzuki method described in Eq.~\eqref{eq: berry curv comp}.}
     \label{fig:Mn3Pt2-nonbreathing}
 \end{figure}
-The two phases give equivalent results in absence of SOC, as seen by comparing Figs.~\ref{fig:Mn3Pt1-nonbreathing} and \ref{fig:Mn3Pt2-nonbreathing} or Figs.~\ref{fig:Mn3Pt1-breathing} and \ref{fig:Mn3Pt2-breathing} due to the global spin rotation of $\pi/2$, shown in Fig.~\ref{fig: magnetic texture Mn3Pt}. Therefore, the spin texture is expected to be rotated by an additional global phase of $\pi/2$ for the T2 phase in the absence of SOC.
+The two phases give equivalent results in the absence of SOC, as seen by comparing Figs.~\ref{fig:Mn3Pt1-nonbreathing} and \ref{fig:Mn3Pt2-nonbreathing} or Figs.~\ref{fig:Mn3Pt1-breathing} and \ref{fig:Mn3Pt2-breathing} due to the global spin rotation of $\pi/2$, shown in Fig.~\ref{fig: magnetic texture Mn3Pt}. Therefore, the spin texture is expected to be rotated by an additional global phase of $\pi/2$ for the T2 phase in the absence of SOC.
 The Berry curvature vanishes in the mirror-invariant plane $\mathcal{M}$, as observed in Fig.~\ref{fig:Mn3Pt2-breathing}, and the behavior according to Eq.~\eqref{eq: symmetry_M} is observed for energy, in-plane spin and Berry curvature in Figs.~\ref{fig:Mn3Pt2-nonbreathing} and \ref{fig:Mn3Pt2-breathing}. Thus, the mirror plane is observed in the electronic-structure properties. The vanishing of the Berry curvature on the mirror-invariant plane stems from it being odd under the mirror plane. In the Fermi-surface spin textures, the spin on the mirror plane is expected to be perpendicular to the mirror plane. \\
 Again, the $C_{3z}^s$-typical behavior, even in-plane spins and even energy for no SOC and an odd Berry curvature in the case without SOC, imposed by $\Theta_s[C_{2z}||E]$ are observed.
-Thus, the Berry curvature vanishes in the absence of SOC in the nonbreathing limit. We also observe, that the Berry curvature vanishes in the presence of SOC in the nonbreathing limit. Although this result would be consistent with an additional $\mathcal{TM}$ symmetry in $xz$-plane, which would hold in the nonbreathing limit, such a symmetry has not been established for the full Hamiltonian. Therefore, a future sturdy would have to show this. Hence, we treat this as a numerical observation. Nevertheless, with no regard to the additional symmetry plane, the Chern number is forced to zero due to the conserved $\mathcal{M}$ symmetry.
+Thus, the Berry curvature vanishes in the absence of SOC in the nonbreathing limit. We also observe, that the Berry curvature vanishes in the presence of SOC in the nonbreathing limit. Although this result would be consistent with an additional $\mathcal{TM}$ symmetry in the $xz$-plane, which could occur only
+in the nonbreathing limit, such a symmetry has not been established for the full Hamiltonian. Therefore, a future study would have to show this. Hence, we treat this as a numerical observation. Nevertheless, independently of the additional symmetry plane, the Chern number is forced to zero due to the conserved $\mathcal{M}$ symmetry.
 \begin{figure}[tbhp]
     \centering
     \includegraphics[
@@ -324,19 +324,20 @@ Thus, the Berry curvature vanishes in the absence of SOC in the nonbreathing lim
 
 The alternating form of the Berry curvature for a breathing lattice comes from the combination of $C_{3z}^s$ and the mirror plane $\mathcal{M}$. An odd behavior of the Berry curvature is not expected in the presence of SOC, and can be checked numerically, yielding
 \begin{align}
-\frac{\max_{\mathbf{k}}\left|\Omega_{xy}^{(n)}(\mathbf{k})-\Omega_{xy}^{(n)}(-\mathbf{k})\right|}{\max_{\mathbf{k}}\left|\Omega_{xy}^{(n)}(\mathbf{k})\right|}\approx 0.02. \nonumber
+\frac{\max_{\mathbf{k}}\left|\Omega_{xy}^{(n)}(\mathbf{k})+\Omega_{xy}^{(n)}(-\mathbf{k})\right|}{\max_{\mathbf{k}}\left|\Omega_{xy}^{(n)}(\mathbf{k})\right|}\approx 0.02. \nonumber
 \end{align}
-In absence of SOC for the breathing case, the energy and in-plane spins are as expected even, whereas the Berry curvature is odd.
+!!!! check the value at home!!!
+In the absence of SOC for the breathing case, the energy and in-plane spins are as expected even, whereas the Berry curvature is odd.
 \newpage
 \section{The M-type Altermagnets \ce{Mn3Ge} and \ce{Mn3Sn}}
 In this section, the model and symmetries formulated in Chapter~\ref{chapter:Theory} are applied to the magnetic texture of the M-type altermagnets \ce{Mn3Ge} and \ce{Mn3Sn}. Further, the resulting expectations are compared with the results by computing the band structure, in-plane Fermi-surface spin texture and the out-of-plane component of Berry curvature.
 \subsection{Magnetic structure of \ce{Mn3Ge} and \ce{Mn3Sn}}
 
 Similarly to \ce{Mn3Pt}, a kagome lattice consisting of manganese atoms in \ce{Mn3Ge} and \ce{Mn3Sn} is obtained by projecting the atoms onto the $(0001)$-plane in the hexagonal structure $D0_{19}$, as stated, for example, in Ref.~\cite{10.1063/1.5064697}. Here, the localized magnetic moments reside predominantly on the manganese atoms due to nearly filled orbitals of the $\ce{Ge}$ and $\ce{Sn}$ atoms and therefore weak magnetic moments. \\
-The magnetic moments form a triangular $120^\circ$ order and therefore the structures depicted in Figs.~\ref{fig: magnetic texture Mn3Ge and Sn}~(a) and (b) follow from the magnetic point groups $m'mm'$ and $mm'm'$, respectively.\\
+The magnetic moments form a triangular $120^\circ$ order and therefore the structures depicted in Figs.~\ref{fig: magnetic texture Mn3Ge and Sn}~(a) and (b) are consistent with the magnetic point groups $m'mm'$ and $mm'm'$, respectively.\\
 For \ce{Mn3Ge}, the phases of the magnetic texture in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn} are $\varphi_{3,A} = \pi/2$, $\varphi_{3,B} = 11\pi/6$ and $\varphi_{3,C}= 7\pi/6$. The magnetic texture of \ce{Mn3Sn} is obtained by adding a global spin rotation of $\pi/2$ to the magnetic moments.\\
 
-In the magnetic texture, the symmetry $[C_{3z}||C_{3z}^{-1}]$ is found, which combines a $120^\circ$ spin-space rotation and a $-120^\circ$ spatial rotation. This symmetry stems from the magnetic order, depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}, which can be shown by proving
+In the magnetic texture, the symmetry $[C_{3z}||C_{3z}^{-1}]$ is found, which combines a $120^\circ$ spin-space rotation and a $-120^\circ$ spatial rotation. This symmetry stems from the magnetic order, depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}, which can be verified using the relations
 \begin{align}
     A\to B & \qquad  \varphi_B = \varphi_A -\frac{2\pi}{3} \nonumber \\
     B\to C & \qquad \varphi_C = \varphi_B -\frac{2\pi}{3} \nonumber  \\
@@ -355,11 +356,11 @@ Therefore, we expect the relations given by
 analogous to Eq.~\eqref{eq: C_3z^s symm}, in the absence of SOC. The symmetry breaks in the presence of SOC, due to inequivalent transformations for spin- and real-space.
 The symmetry also fixes the in-plane net magnetization to zero, analogously to $C_{3z}^s$ for \ce{Mn3Pt}, in the absence of SOC.
 
-The $\mathcal{TM}$ and $\mathcal{M}$ planes depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn} force the properties in Eq.~\eqref{eq: symmetry_M} and \eqref{eq: symmetry_TM}.
+The $\mathcal{M}$ and $\mathcal{TM}$ planes depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn} force the properties in Eq.~\eqref{eq: symmetry_M} and \eqref{eq: symmetry_TM}.
 The conservation of the $\mathcal{TM}$ plane has to be proven again in the presence of SOC according to Eq.~\eqref{eq: TM symmetry prove eq}.
 The mirror plane $\mathcal{M}$, which is in this case equal to $[C_{2\hat{s}}||\sigma_v]$ because the spin is perpendicular to the mirror plane, is expected to hold in the presence of SOC, due to $[C_{2\hat{s}}||\sigma_v]$ transforming spin-space and real-space equivalently.
 
-In contrast, the $[C_{2\hat{\mathbf{s}}}||\sigma_v]$ operator, whose plane is depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}, is broken by SOC in \ce{Mn3Ge} in the presence of SOC because the spin on the mirror plane is in the mirror plane and, therefore, the spin-space and spatial transformations are inequivalent.   \\
+In contrast, the $[C_{2\hat{\mathbf{s}}}||\sigma_v]$ operator, whose plane is depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}, is broken by SOC in \ce{Mn3Ge} because the spin on the mirror plane is in the mirror plane and, therefore, the spin-space and spatial transformations are inequivalent.   \\
 
 
 %NEEEL TEMPERATURE https://www.sciencedirect.com/science/article/abs/pii/S0304885322009039 365K - 400K!!!
@@ -493,7 +494,7 @@ In contrast, the $[C_{2\hat{\mathbf{s}}}||\sigma_v]$ operator, whose plane is de
 
 By analogy with \ce{Mn3Pt}, the symmetries $\Theta_s [C_{2z}||E]$ and $[E||C_{2z}]$ are expected, where the former holds in the absence of SOC and the latter in the nonbreathing limit. 
 Also, the two textures are predicted to behave identically in the absence of SOC with respect to the global spin rotation of $\pi/2$.\\
-These symmetries constrain the direction of an allowed magnetization. When they are broken by adding SOC, a net magnetization is permitted in \ce{Mn3Ge} within the $\mathcal{TM}$ plane, i.e., along the $y$-axis, and in \ce{Mn3Sn} perpendicular to the $\mathcal{M}$ plane, i.e., along the $x$-axis.  
+These symmetries constrain the direction of an allowed magnetization. When $[C_{3z}||C_{3z}^{-1}]$ is broken by adding SOC, a net magnetization is permitted in \ce{Mn3Ge} within the $\mathcal{TM}$ plane, i.e., along the $y$-axis, and in \ce{Mn3Sn} perpendicular to the $\mathcal{M}$ plane, i.e., along the $x$-axis.  
 
 
 
@@ -526,7 +527,7 @@ The computed band structure, in-plane Fermi-surface spin texture and Berry curva
 For the nonbreathing limit, the Berry curvature, energies, and spins are
 even in $\mathbf{k}$, as imposed by $[E||C_{2z}]$, which also holds in the presence of SOC.\\
 This operation and the $\Theta_s [C_{2z}||E]$ operator in the nonbreathing limit in the absence of SOC lead to a vanishing Berry curvature as seen in Fig.~\ref{fig:Mn3Ge-nonbreathing} (c), as also confirmed for \ce{Mn3Pt}. The imposed properties of $[C_{3z}||C_{3z}^{-1}]$, given by Eq.~\eqref{eq: C_3z^-1 symm}, are observed in the absence of SOC in Figs.~\ref{fig:Mn3Ge-nonbreathing} and \ref{fig:Mn3Ge-breathing}, therefore confirming the prediction. In the presence of SOC, $[C_{3z}||C_{3z}^{-1}]$ breaks. Thus, in the presence of SOC, the evenness, imposed by $[E||C_{2z}]$, is expected, as observed in Fig.~\ref{fig:Mn3Ge-nonbreathing}. \\
-The properties imposed by $[C_{2\hat{s}}||\sigma_v]$ can also be observed in the absence of SOC. However, we also are able to observe properties imposed by the $\mathcal{TM}$ plane, according to Eq.~\eqref{eq: symmetry_TM}, in the case of SOC, therefore, we expect that this symmetry also holds for SOC. This has to be shown, as earlier stated. \\
+The properties imposed by $[C_{2\hat{s}}||\sigma_v]$ can also be observed in the absence of SOC. However, we also are able to observe properties imposed by the $\mathcal{TM}$ plane, according to Eq.~\eqref{eq: symmetry_TM}, in the case of SOC, therefore, we expect that this symmetry also holds for SOC. This has to be theoretically shown, as earlier stated. \\
 
 % The obtained results show a conservation of the $\mathcal{TM}$ plane for SOC of different orders using Eq.~\eqref{eq: TM symmetry prove eq}. \\
 % It might be expected that this breakage is small enough for numerical errors to overtake. 
@@ -560,7 +561,7 @@ The properties imposed by $[C_{2\hat{s}}||\sigma_v]$ can also be observed in the
 Breaking the nonbreathing limit by introducing unequal hopping parameters breaks
 the symmetry $[E||C_{2z}]$ that otherwise imposes evenness, thereby allowing a Berry curvature in the absence of SOC, which was earlier prohibited by $\Theta_s[C_{2z}||E]$ and $[E||C_{2z}]$. Therefore, we are able to observe the odd behavior of the Berry curvature, imposed by $\Theta_s [C_{2z}||E]$, forcing the total Chern number of an isolated composite subspace to vanish, as seen in Fig.~\ref{fig:Mn3Ge-breathing}~(c). \\
 The energy and spins are even in the absence of SOC, whereas the Berry curvature is odd, due to $\Theta_s[C_{2z}||E]$. These constraints, together with $[C_{3z}||C_{3z}^{-1}]$ and the $\mathcal{TM}$ plane, lead to the observed behavior in Fig.~\ref{fig:Mn3Ge-breathing}.\\
-In the presence of SOC in the breathing lattice, $\Theta_s [C_{2z}||E]$, $[C_{2\hat{s}}||\sigma_v]$ and $[C_{3z}||C_{3z}^{-1}]$ are broken. The only observable symmetry is the $\mathcal{TM}$ symmetry, which provides another reason for the assumed conservation for SOC for the $\mathcal{TM}$ plane. !!!!!!!!!!!!!!!!!!!!!\\
+In the presence of SOC in the breathing lattice, $\Theta_s [C_{2z}||E]$, $[C_{2\hat{s}}||\sigma_v]$ and $[C_{3z}||C_{3z}^{-1}]$ are broken. The only observable properties are the imposed constraints of the $\mathcal{TM}$ symmetry, given by Eq.~\eqref{eq: symmetry_TM}. Thus, the resulting numerical data is compatible with \mathcal{TM}. !!!!!!!!!!!!!!!!!!!!!\\
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 In \ce{Mn3Ge} a net magnetization along the $\mathcal{TM}$ plane, or along $y$, can be formed in the presence of SOC. This is because $[C_{3z}||C_{3z}^{-1}]$ is broken, which allows an in-plane net magnetization, and the $\mathcal{TM}$ plane itself forces the perpendicular component, or the net magnetization along $x$ to vanish. Thus, a net magnetization is allowed in the $y$-direction. \\
@@ -572,7 +573,7 @@ Therefore, opposite $y$-directed spin expectation values experience an energy sh
 Hence, a magnetization along a direction deforms the Fermi surface perpendicular to the polarization of the magnetization accordingly.
 
 
-Figs.~\ref{fig:Mn3Ge-nonbreathing} and \ref{fig:Mn3Ge-breathing} show that the bands are spin-split also in the absence of SOC, classifying \ce{Mn3Ge} as a strong altermagnet. The spin-splitting arises because the compensated texture breaks $\mathcal{PT}$ symmetry and other symmetries enforce band degeneracies.
+Figs.~\ref{fig:Mn3Ge-nonbreathing} and \ref{fig:Mn3Ge-breathing} show that the bands are spin-split also in the absence of SOC, classifying \ce{Mn3Ge} as a strong altermagnet. The spin-splitting arises because the compensated texture breaks $\mathcal{PT}$ symmetry and other symmetries that would enforce band degeneracies.
 
 
 Hence, \ce{Mn3Ge} is an altermagnet and provides a weak net magnetization allowed by SOC. Therefore, \ce{Mn3Ge} can be classified as an M-type altermagnet, as confirmed in Ref.~\cite{Cheong2025}.
@@ -608,12 +609,12 @@ The cases without SOC will not be discussed in detail because we expect equivale
         ]{Plots/Mn3Sn/Mn3Sn nonbreathing_berry_w_soc.pdf}
         
     \end{subfigure}
-    \caption{\textbf{Tight-binding results for \ce{Mn3Sn} in the nonbreathing limit, with the magnetic texture shown in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}~(b)}, obtained using the Bloch Hamiltonian in Eq.~\eqref{eq: bloch-Hamiltonian}.} (a) Electronic band structure along the high-symmetry path $\Gamma$--$M$--$K$. (b) In-plane spin texture on the Fermi surface at the chemical potential $\mu$. (c,d) Berry curvature calculated without and with spin--orbit coupling (SOC), respectively, using the Fukui--Hatsugai--Suzuki method described in Eq.~\eqref{eq: berry curv comp}.}
+    \caption{\textbf{Tight-binding results for \ce{Mn3Sn} in the nonbreathing limit, with the magnetic texture shown in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}~(b), obtained using the Bloch Hamiltonian in Eq.~\eqref{eq: bloch-Hamiltonian}.} (a) Electronic band structure along the high-symmetry path $\Gamma$--$M$--$K$. (b) In-plane spin texture on the Fermi surface at the chemical potential $\mu$. (c,d) Berry curvature calculated without and with spin--orbit coupling (SOC), respectively, using the Fukui--Hatsugai--Suzuki method described in Eq.~\eqref{eq: berry curv comp}.}
     \label{fig:Mn3Sn-nonbreathing}
 \end{figure}
 In the nonbreathing limit, in the presence of SOC, we are able to observe the $\mathcal{M}$ plane, forcing the spins to align perpendicular to it  on the mirror-invariant momentum line and the Berry curvature to vanish on it. A mirror-symmetric Fermi-surface spin texture can be seen in Fig.~\ref{fig:Mn3Sn-nonbreathing} (b).
 In the nonbreathing limit, we expect the $[E||C_{2z}]$-symmetry, imposing evenness in the electronic-structure energy, spins and Berry curvature. \\
-Note that none of the constraints imposed by the symmetry $[C_{3z}||C^{-1}_{3z}]$ according to Eq.~\eqref{eq: C_3z^-1 symm} can be observed in the presence of SOC, hence verifying that the found $[C_{3z}||C_{3z}^{-1}]$ symmetry breaks in the presence of SOC. 
+Note that none of the constraints imposed by the symmetry $[C_{3z}||C^{-1}_{3z}]$ according to Eq.~\eqref{eq: C_3z^-1 symm} can be observed in the presence of SOC, hence consistent with the found $[C_{3z}||C_{3z}^{-1}]$ symmetry breaking in the presence of SOC. 
 \begin{figure}[htbp]
     \centering
     \includegraphics[
@@ -642,7 +643,7 @@ Switching to a breathing kagome lattice, the evenness imposed by $[E||C_{2z}]$ i
 
 The mirror plane forces the net magnetization to vanish along  the $y$- and $z$-directions. Analogously to \ce{Mn3Ge}, the broken $[C_{3z}||C_{3z}^{-1}]$ symmetry in the presence of SOC allows an in-plane net magnetization. Thus, an $x$-directed net magnetization is allowed. 
 
-The magnetic order is fully compensated due to the three equal-magnitude moments separated by $120^\circ$ summing to zero, as depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}~(b). 
+The magnetic order is fully compensated due to the three equal-magnitude moments separated by $120^\circ$ sum to zero, as depicted in Fig.~\ref{fig: magnetic texture Mn3Ge and Sn}~(b). 
 \ce{Mn3Sn} exhibits spin-split bands also in the absence of SOC. Thus, with full compensation and the spin-split bands, \ce{Mn3Sn} is classified as a strong altermagnet. 
 Hence, \ce{Mn3Sn} is a strong altermagnet of M-type, like \ce{Mn3Ge}, exhibiting an $x$-directed net magnetization in the presence of SOC. Therefore, our result agrees with the classification given in Ref.~\cite{Cheong2025}.\\
 The effects of the net magnetization can also be seen in the in-plane Fermi-surface spin textures for $k_x=0$, shown in Figs.~\ref{fig:Mn3Sn-nonbreathing} and \ref{fig:Mn3Sn-breathing}, in the presence of SOC. 
