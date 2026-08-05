@@ -16,7 +16,7 @@ vanishes for a small $\mathbf{k}$-space separation $\mathbf{b}$, as discussed in
 \end{align}
 Here, $\overline u_{\alpha n}$ describes the coefficients and thus the components of the eigenstates from the Hamiltonian $\overline{\mathcal{H}}(\mathbf{k})$. By again using Bloch's theorem, the cell-periodic states are determined as
 \begin{align}
-u_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}}\Psi_{n\mathbf{k}}(\mathbf{r}).
+u_{n\mathbf{k}}(\mathbf{r}) = e^{-i\mathbf{k}\cdot\mathbf{r}}\Psi_{n\mathbf{k}}(\mathbf{r}).
 \end{align}
 By adding the geometric position of the sublattices and selecting the sublattice $A$ as the origin, we obtain
 \begin{align}
@@ -38,14 +38,14 @@ Lastly, the periodicity of the Berry curvature in $\mathbf{k}$ is demonstrated b
     &=\frac{1}{\text{d}A}\Im\Big\{\ln\big[
     \bra{\overline{u}_{n\mathbf{k}+\mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_x + \mathbf{G}) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \mathbf{G}}} \nonumber \\
      &\qquad\qquad\qquad
-    \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_x + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_y)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \mathbf{k}_y + \mathbf{G}}} \nonumber\\
+    \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_x + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_y)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \Delta\mathbf{k}_y + \mathbf{G}}} \nonumber\\
      &\qquad\qquad\qquad
     \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}}\hat{D}^\dagger(- \Delta \mathbf{k}_x)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_y + \mathbf{G}}} \nonumber\\
      &\qquad\qquad\qquad
     \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_y + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( -\Delta \mathbf{k}_y) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k} + \mathbf{G}}}\big] \Big\}\nonumber\\
     &= \frac{1}{\text{d}A}\Im\Big\{\ln\big[
     \braket{u_{n\mathbf{k}}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}}} 
-    \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}}} \nonumber\\
+    \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}+ \Delta \mathbf{k}_y}} \nonumber\\
     &\quad\qquad\qquad\quad
     \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y}}{u_{n\mathbf{k}+\Delta \mathbf{\mathbf{k}_y}}} 
     \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_y}}{u_{n\mathbf{k}}}\big] \Big\} \nonumber \\
