@@ -180,7 +180,7 @@ i\sum_{\mathbf R}
 \end{align}
 with $\bm{\hat{\sigma}}$ defined in Eq. \eqref{eq: pauli matrices}. 
 Here, the cell-connection vectors $\mathbf{a}_i$ are defined as $\mathbf{a}_1  = 2a(-1/2,\,-\sqrt{3}/2,\, 0)^{\mathrm T}$, $\mathbf{a}_2 = 2a(1,\,0)^{\mathrm T}$ and $\mathbf{a}_3 = 2a(-1/2,\,\sqrt{3}/2,\, 0)^{\mathrm T}$, where $a$ is the lattice constant, wherease the bond-orientation vectors are defined as $\mathbf{d}_i = \mathbf{\hat{e}}_z\times\mathbf{a}_i/||\mathbf{a}_i||$, denoting $\mathbf{d}_1=(\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$, $\mathbf{d}_2=(0,\,1,\, 0)^{\mathrm T}$ and $\mathbf{d}_3=(-\sqrt{3}/2,\,-1/2,\, 0)^{\mathrm T}$.
-The defined vectors are shown in Fig.~\ref{fig: kagome_model_definitions}. The dashed bonding orientation vectors in Fig.~\ref{fig: kagome_model_definitions}~(b) represent the reverse hopping direction associated with the Hermitian-conjugate terms. \\
+This determines the intra-cell hopping on the primed parameters $t'$ and $\lambda'$. The defined vectors are shown in Fig.~\ref{fig: kagome_model_definitions}. The dashed bonding orientation vectors in Fig.~\ref{fig: kagome_model_definitions}~(b) represent the reverse hopping direction associated with the Hermitian-conjugate terms. \\
 Rashba-SOC requires structural inversion asymmetry normal to the $xy$-plane, as stated in Ref. \cite{Manchon2015}, and therefore can, for example, be induced by applying an out-of-plane electric field or by stacking polar planes as achieved by, for example, coupling the system to a superconductor, treating both sides $z$ and $-z$ differently, as executed in Ref.~\cite{Quelle3}. Therefore, Rashba-SOC occurs if the two sides of the plane are treated inequivalently.
 Note that we might also expect intrinsic SOC in the examined kagome materials. Intrinsic SOC can be added to the same nearest-neighbor bonds as in Eq.~\eqref{eq:Rashba_Hamiltonian_soc} by setting $\mathbf{d}_i = \bm{\hat{e}}_z$, where the reverse hopping bonds carry an opposite sign due to the Hermitian conjugate. Hereafter, only pure Rashba-SOC is used. 
 \\
@@ -258,10 +258,10 @@ where
 \begin{align}
            \bm{\tau}_A &= \begin{pmatrix}
            0 \\ 0
-       \end{pmatrix}, \quad  \bm{\tau}_B = -\frac{\mathbf{a}_1}{2} \quad \text{and} \quad  \bm{\tau}_C = \frac{\mathbf{a}_3}{2}
+       \end{pmatrix}, \quad  \bm{\tau}_B = \frac{\mathbf{a}_1}{2} \quad \text{and} \quad  \bm{\tau}_C = -\frac{\mathbf{a}_3}{2}
 \end{align} 
 are used. The Fourier transformation can be done because the unit cell is lattice-translation invariant. \\
-Here, the $\bm{\tau}_\alpha$-vectors are needed to map the creation and annihilation operators onto the corresponding positions. This is mainly needed to obtain the cell-periodic states as clarified in section \ref{chapter: AppendixB}. \\
+Here, the $\bm{\tau}_\alpha$-vectors are needed to map the creation and annihilation operators onto the corresponding intra-cell positions, determining the sign. This is mainly needed to obtain the cell-periodic states as clarified in section \ref{chapter: AppendixB}. \\
 The $A$-sublattice is chosen as the origin. With Eq. \eqref{eq: fourier transf} and the definition of $\hat{t}_i$ and $\hat{t}'_i$ the hopping Hamiltonian with SOC finally becomes
  \begin{align}
      H_\text{hop.} = - \sum_{\mathbf{k}}\Bigg\{ \sum_{i=1}^3 \mathbf{c}_{\mathbf{k},\beta_i}^\dagger (\hat{t}'_i + \hat{t}_i e^{i\mathbf{k}\cdot \mathbf{a}_i}) e^{i\mathbf{k}\cdot(\bm{\tau}_{\alpha_i} - \bm{\tau}_{\beta_i})} \mathbf{c}_{\mathbf{k},\alpha_i} \Bigg\}+\text{H.c.}.

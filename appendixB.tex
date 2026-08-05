@@ -10,40 +10,45 @@ The reason why the vectors $\boldsymbol{\tau}_\alpha$ have to be used for the Fo
 \end{align}
 vanishes for a small $\mathbf{k}$-space separation $\mathbf{b}$, as discussed in detail in \cite{Vanderbilt_2018}. Hence, the resulting basis coefficients, and hence the states, must be transformed, as follows
 \begin{align}
-\ket{\Psi_{n\mathbf{k}}} &= \sum_\alpha v_{\alpha n}(\mathbf{k}) c_{\mathbf{k}\alpha}^\dagger \ket{0} \nonumber\\
+\ket{\Psi_{n\mathbf{k}}} &= \sum_\alpha \overline{u}_{\alpha n}(\mathbf{k}) c_{\mathbf{k}\alpha}^\dagger \ket{0} \nonumber\\
 &= \frac{1}{\sqrt{N}} \sum_{\mathbf{R},\alpha} 
-v_{\alpha n}(\mathbf{k})e^{i\mathbf{k}\cdot\mathbf{R}} \ket{\mathbf{R},\alpha}.
+\overline u_{\alpha n}(\mathbf{k})e^{i\mathbf{k}\cdot\mathbf{R}} \ket{\mathbf{R},\alpha}.
 \end{align}
-Here, $v_{\alpha n}$ describes the coefficients and thus the eigenstates of the Hamiltonian $\mathcal{H}(\mathbf{k})$. By again using Bloch's theorem, the cell-periodic states are determined as
+Here, $\overline u_{\alpha n}$ describes the coefficients and thus the components of the eigenstates from the Hamiltonian $\overline{\mathcal{H}}(\mathbf{k})$. By again using Bloch's theorem, the cell-periodic states are determined as
 \begin{align}
-u_{n\mathbf{k}}(\mathbf{r}) = e^{-i\mathbf{k}\cdot\mathbf{r}}\Psi_{n\mathbf{k}}(\mathbf{r}).
+u_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}}\Psi_{n\mathbf{k}}(\mathbf{r}).
 \end{align}
 By adding the geometric position of the sublattices and selecting the sublattice $A$ as the origin, we obtain
 \begin{align}
-u_{n\mathbf{k}}(\mathbf{R}+\boldsymbol{\tau}_\alpha) = e^{-i \mathbf{k}\cdot \mathbf{R}}e^{-i\mathbf{k}\cdot\boldsymbol{\tau}_\alpha}\Psi_{n\mathbf{k}}(\mathbf{R}+\boldsymbol{\tau}_\alpha) = \frac{1}{\sqrt{N}}e^{-i\mathbf{k}\cdot\boldsymbol{\tau}_\alpha}v_{\alpha n}(\mathbf{k}).
+u_{n\mathbf{k}}(\mathbf{R}+\boldsymbol{\tau}_\alpha) = e^{-i \mathbf{k}\cdot \mathbf{R}}e^{-i\mathbf{k}\cdot\boldsymbol{\tau}_\alpha}\Psi_{n\mathbf{k}}(\mathbf{R}+\boldsymbol{\tau}_\alpha) = \frac{1}{\sqrt{N}}e^{-i\mathbf{k}\cdot\boldsymbol{\tau}_\alpha}\overline{u}_{\alpha n}(\mathbf{k}).
 \end{align}
 Hence, the cell-periodic states are determined by
 \begin{align}
- \ket{u_{n\mathbf{k}}} = \hat{D}^\dagger(\mathbf{k})\cdot \ket{v_{n\mathbf{k}}}
+ \ket{u_{n\mathbf{k}}} = \hat{D}^\dagger(\mathbf{k})\cdot \ket{\overline{u}_{n\mathbf{k}}}
+ \label{eq: appB transf eigenstate}
 \end{align}
-with the previously defined $\hat{D}(\mathbf{k}) = \text{diag}\left(e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_C}, e^{i\mathbf{k}\cdot\bm{\tau}_C}\right)$ and the obtained eigenstates of the Hamiltonian $\mathcal{H}(\mathbf{k})$.
-If, for example, the transformation is not used, all creation operators of one unit cell correspond to the same intracell coordinate, changing the tight-binding embedding used for geometric quantities, and therefore resulting in a different Berry curvature.
+with the previously defined $\hat{D}(\mathbf{k}) = \text{diag}\left(e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_C}, e^{i\mathbf{k}\cdot\bm{\tau}_C}\right)$ and the obtained eigenstates $\ket{\overline{u}_{n\mathbf{k}}}$ of the Hamiltonian $\overline{\mathcal{H}}(\mathbf{k})$.
+If, for example, the transformation is not used, all creation operators of one unit cell correspond to the same intra-cell coordinate, changing the tight-binding embedding used for geometric quantities, and therefore resulting in a different Berry curvature.
 Lastly, the periodicity of the Berry curvature in $\mathbf{k}$ is demonstrated by
 \begin{align}
-    \Omega_n(\mathbf{k}+\mathbf{G}) &\approx \frac{1}{\text{d}A}\Im\Big\{\ln\big[
-    \bra{v_{n\mathbf{k}+\mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}( \Delta \mathbf{k}_x + \mathbf{G}) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{v_{n\mathbf{k}+\mathbf{\Delta \mathbf{k}_x} + \mathbf{G}}} \nonumber \\
+    \Omega_n(\mathbf{k}+\mathbf{G}) &\approx 
+    \frac{1}{\text{d}A}\Im \Big\{\ln\big[ \braket{u_{n\mathbf{k}+\mathbf{G}}}{u_{n\mathbf{k}+\Delta\mathbf{k}_x + \mathbf{G}}} \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x +  \mathbf{G}}}{u_{n\mathbf{k}+\Delta\mathbf{k}_x + \Delta \mathbf{k}_y+ \mathbf{G}}} \nonumber\\
+    &\qquad\qquad\qquad\braket{u_{n\mathbf{k} +\Delta\mathbf{k}_x + \Delta \mathbf{k}_y+ \mathbf{G}}}{u_{n\mathbf{k}+\Delta\mathbf{k}_y+ \mathbf{G}}} 
+    \braket{u_{n\mathbf{k} +\Delta\mathbf{k}_y + \mathbf{G}}}{u_{n\mathbf{k}+ \mathbf{G}}} \big] \Big\}\nonumber\\
+    &=\frac{1}{\text{d}A}\Im\Big\{\ln\big[
+    \bra{\overline{u}_{n\mathbf{k}+\mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_x + \mathbf{G}) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \mathbf{G}}} \nonumber \\
      &\qquad\qquad\qquad
-    \bra{v_{n\mathbf{k}+\Delta \mathbf{k}_x + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}( \Delta \mathbf{k}_y)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{v_{n\mathbf{k}+\mathbf{\Delta \mathbf{k}_x} + \mathbf{k}_y + \mathbf{G}}} \nonumber\\
+    \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_x + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_y)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \mathbf{k}_y + \mathbf{G}}} \nonumber\\
      &\qquad\qquad\qquad
-    \bra{v_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}}\hat{D}(- \Delta \mathbf{k}_x)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{v_{n\mathbf{k}+\Delta \mathbf{k}_y + \mathbf{G}}} \nonumber\\
+    \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}}\hat{D}^\dagger(- \Delta \mathbf{k}_x)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_y + \mathbf{G}}} \nonumber\\
      &\qquad\qquad\qquad
-    \bra{v_{n\mathbf{k}+\Delta \mathbf{k}_y + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}( -\Delta \mathbf{k}_y) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{v_{n\mathbf{k} + \mathbf{G}}}\big] \Big\}\nonumber\\
+    \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_y + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( -\Delta \mathbf{k}_y) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k} + \mathbf{G}}}\big] \Big\}\nonumber\\
     &= \frac{1}{\text{d}A}\Im\Big\{\ln\big[
-    \braket{u_{n\mathbf{k}}}{u_{n\mathbf{k}+\mathbf{\Delta \mathbf{k}_x}}} 
-    \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x}}{u_{n\mathbf{k}+\mathbf{\Delta \mathbf{k}_x}}} \nonumber\\
+    \braket{u_{n\mathbf{k}}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}}} 
+    \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}}} \nonumber\\
     &\quad\qquad\qquad\quad
     \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y}}{u_{n\mathbf{k}+\Delta \mathbf{\mathbf{k}_y}}} 
     \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_y}}{u_{n\mathbf{k}}}\big] \Big\} \nonumber \\
     &\approx \Omega_n(\mathbf{k}),
 \end{align}
- where $u_{n\mathbf{k}}(r) = e^{i\mathbf{k}\mathbf{r}}v_{n,\mathbf{k}}(\mathbf{r})$ and $e^{-i\mathbf{G}\cdot\mathbf{r}}e^{i\mathbf{G}\cdot\mathbf{r}} = 1$ is used for the Fukui-hatsugai-Suzuki plaquette method.
+ where Eq.\eqref{eq: appB transf eigenstate} and $e^{-i\mathbf{G}\cdot\mathbf{r}}e^{i\mathbf{G}\cdot\mathbf{r}} = 1$ is used for the Fukui-Hatsugai-Suzuki plaquette method. 
