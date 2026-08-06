@@ -1,14 +1,12 @@
 
 \label{chapter: AppendixB}
 
-
-
-The reason why the vectors $\boldsymbol{\tau}_\alpha$ have to be used for the Fourier transformation in Eq.~\eqref{eq: fourier transf} is that the Berry connection, and therefore the Berry curvature and Berry phase, require cell-periodic states $\ket{u_{n\mathbf{k}}}$ because the overlap of two Bloch functions
+The reason behind the vectors $\boldsymbol{\tau}_\alpha$ used for the Fourier transformation in Eq.~\eqref{eq: fourier transf} is that the Berry connection, and therefore the Berry curvature and Berry phase, should be defined on cell-periodic states $\ket{u_{n\mathbf{k}}}$ because the overlap of two Bloch functions
 \begin{align}
-   \langle{{\Psi_{n\mathbf{k}}}}|{{\Psi_{n\mathbf{k+b}}}}\rangle &= \int_{-\infty}^{\infty} \Psi_{n\mathbf{k}}^\dagger(x)\cdot \Psi_{n\mathbf{k+b}}(x) \,\text{d}x \\
-   &=  \bra{{u_{n\mathbf{k}}}}e^{-i\mathbf{b}\cdot \mathbf{x}}\ket{{u_{n\mathbf{k+b}}}} = \int_{-\infty}^{\infty} e^{-i\mathbf{b}\cdot \mathbf{x}}u_{n\mathbf{k}}^\dagger(x)\cdot u_{n\mathbf{k+b}}(x) \,\text{d}\mathbf{x} = 0
+   \langle{{\Psi_{n\mathbf{k}}}}|{{\Psi_{n\mathbf{k+b}}}}\rangle &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \Psi_{n\mathbf{k}}^\dagger(\mathbf{x})\cdot \Psi_{n\mathbf{k+b}}(\mathbf{x}) \,\text{d}^2\mathbf{x} \nonumber\\
+   &=  \bra{{u_{n\mathbf{k}}}}e^{-i\mathbf{b}\cdot \mathbf{x}}\ket{{u_{n\mathbf{k+b}}}} = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{-i\mathbf{b}\cdot \mathbf{x}}u_{n\mathbf{k}}^\dagger(x)\cdot u_{n\mathbf{k+b}}(x) \,\text{d}^2\mathbf{x} = 0
 \end{align}
-vanishes for a small $\mathbf{k}$-space separation $\mathbf{b}$, as discussed in detail in \cite{Vanderbilt_2018}. Hence, the resulting basis coefficients, and hence the states, must be transformed, as follows
+vanishes over the complete crystal for a small $\mathbf{k}$-space separation $\mathbf{b}$, as discussed in detail in \cite{Vanderbilt_2018}. Hence, the resulting basis coefficients, and hence the states, must be transformed as follows
 \begin{align}
 \ket{\Psi_{n\mathbf{k}}} &= \sum_\alpha \overline{u}_{\alpha n}(\mathbf{k}) c_{\mathbf{k}\alpha}^\dagger \ket{0} \nonumber\\
 &= \frac{1}{\sqrt{N}} \sum_{\mathbf{R},\alpha} 
@@ -18,16 +16,16 @@ Here, $\overline u_{\alpha n}$ describes the coefficients and thus the component
 \begin{align}
 u_{n\mathbf{k}}(\mathbf{r}) = e^{-i\mathbf{k}\cdot\mathbf{r}}\Psi_{n\mathbf{k}}(\mathbf{r}).
 \end{align}
-By adding the geometric position of the sublattices and selecting the sublattice $A$ as the origin, we obtain
+By including the geometric position of the sublattices and selecting the sublattice $A$ as the origin, we obtain
 \begin{align}
 u_{n\mathbf{k}}(\mathbf{R}+\boldsymbol{\tau}_\alpha) = e^{-i \mathbf{k}\cdot \mathbf{R}}e^{-i\mathbf{k}\cdot\boldsymbol{\tau}_\alpha}\Psi_{n\mathbf{k}}(\mathbf{R}+\boldsymbol{\tau}_\alpha) = \frac{1}{\sqrt{N}}e^{-i\mathbf{k}\cdot\boldsymbol{\tau}_\alpha}\overline{u}_{\alpha n}(\mathbf{k}).
 \end{align}
 Hence, the cell-periodic states are determined by
 \begin{align}
- \ket{u_{n\mathbf{k}}} = \hat{D}^\dagger(\mathbf{k})\cdot \ket{\overline{u}_{n\mathbf{k}}}
+ \ket{u_{n\mathbf{k}}} = \hat{D}^\dagger(\mathbf{k})\cdot \ket{\overline{u}_{n\mathbf{k}}},
  \label{eq: appB transf eigenstate}
 \end{align}
-with the previously defined $\hat{D}(\mathbf{k}) = \text{diag}\left(e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_C}, e^{i\mathbf{k}\cdot\bm{\tau}_C}\right)$ and the obtained eigenstates $\ket{\overline{u}_{n\mathbf{k}}}$ of the Hamiltonian $\overline{\mathcal{H}}(\mathbf{k})$.
+where the previously defined $\hat{D}(\mathbf{k}) = \text{diag}\left(e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_A}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_B}, e^{i\mathbf{k}\cdot\bm{\tau}_C}, e^{i\mathbf{k}\cdot\bm{\tau}_C}\right)$ and the obtained eigenstates $\ket{\overline{u}_{n\mathbf{k}}}$ of the Hamiltonian $\overline{\mathcal{H}}(\mathbf{k})$ are used.
 If, for example, the transformation is not used, all creation operators of one unit cell correspond to the same intra-cell coordinate, changing the tight-binding embedding used for geometric quantities, and therefore resulting in a different Berry curvature.
 Lastly, the periodicity of the Berry curvature in $\mathbf{k}$ is demonstrated by
 \begin{align}
@@ -36,7 +34,7 @@ Lastly, the periodicity of the Berry curvature in $\mathbf{k}$ is demonstrated b
     &\qquad\qquad\qquad\braket{u_{n\mathbf{k} +\Delta\mathbf{k}_x + \Delta \mathbf{k}_y+ \mathbf{G}}}{u_{n\mathbf{k}+\Delta\mathbf{k}_y+ \mathbf{G}}} 
     \braket{u_{n\mathbf{k} +\Delta\mathbf{k}_y + \mathbf{G}}}{u_{n\mathbf{k}+ \mathbf{G}}} \big] \Big\}\nonumber\\
     &=\frac{1}{\text{d}A}\Im\Big\{\ln\big[
-    \bra{\overline{u}_{n\mathbf{k}+\mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_x + \mathbf{G}) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \mathbf{G}}} \nonumber \\
+    \bra{\overline{u}_{n\mathbf{k}+\mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_x) e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \mathbf{G}}} \nonumber \\
      &\qquad\qquad\qquad
     \bra{\overline{u}_{n\mathbf{k}+\Delta \mathbf{k}_x + \mathbf{G}}} e^{-i\mathbf{G}\cdot\mathbf{r}} \hat{D}^\dagger( \Delta \mathbf{k}_y)e^{i\mathbf{G}\cdot\mathbf{r}}\ket{\overline{u}_{n\mathbf{k}+{\Delta \mathbf{k}_x} + \Delta\mathbf{k}_y + \mathbf{G}}} \nonumber\\
      &\qquad\qquad\qquad
@@ -47,8 +45,8 @@ Lastly, the periodicity of the Berry curvature in $\mathbf{k}$ is demonstrated b
     \braket{u_{n\mathbf{k}}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}}} 
     \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x}}{u_{n\mathbf{k}+{\Delta \mathbf{k}_x}+ \Delta \mathbf{k}_y}} \nonumber\\
     &\quad\qquad\qquad\quad
-    \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y}}{u_{n\mathbf{k}+\Delta \mathbf{\mathbf{k}_y}}} 
+    \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_x + \Delta \mathbf{k}_y}}{u_{n\mathbf{k}+\Delta \mathbf{k}_y}} 
     \braket{u_{n\mathbf{k}+\Delta \mathbf{k}_y}}{u_{n\mathbf{k}}}\big] \Big\} \nonumber \\
     &\approx \Omega_n(\mathbf{k}),
 \end{align}
- where Eq.\eqref{eq: appB transf eigenstate} and $e^{-i\mathbf{G}\cdot\mathbf{r}}e^{i\mathbf{G}\cdot\mathbf{r}} = 1$ is used for the Fukui-Hatsugai-Suzuki plaquette method. 
+ where Eq.~\eqref{eq: appB transf eigenstate} and $e^{-i\mathbf{G}\cdot\mathbf{r}}e^{i\mathbf{G}\cdot\mathbf{r}} = 1$ are used for the Fukui-Hatsugai-Suzuki plaquette method. 

@@ -7,20 +7,20 @@ To further simplify the hopping Hamiltonian $H_\text{hop.}$, we begin by showing
     &= (d_x^2 + d_y^2 + d_z^2)\hat{I}_2 + d_xd_y\{\hat{\sigma}_x , \hat{\sigma}_y\} + d_yd_z\{\hat{\sigma}_y , \hat{\sigma}_z\} + d_xd_z\{\hat{\sigma}_x , \hat{\sigma}_z\} = \hat{I}_2
     \label{eq: appA d*sigma},
 \end{align}
-where $\hat{I}_2$ denotes the $2\times2$ identity matrix, following from basic operations with the Pauli matrices and with the anticommutator, defined as $\{\hat{A} , \hat{B}\} = \hat{A}\hat{B}+\hat{B}\hat{A}$. Also, the unit-vector $|d_i| = 1$ and $\{\hat{\sigma}_i, \hat{\sigma}_j\} = 2\delta_{ij}\hat{I}_2$ are used.
+where $\hat{I}_2$ denotes the $2\times2$ identity matrix and the anticommutator, defined as $\{\hat{A} , \hat{B}\} = \hat{A}\hat{B}+\hat{B}\hat{A}$. Also, the unit-vector $|d_i| = 1$ and $\{\hat{\sigma}_i, \hat{\sigma}_j\} = 2\delta_{ij}\hat{I}_2$ are used. 
 Next, we can use Euler's formula and Eq.~\eqref{eq: appA d*sigma} to obtain
 \begin{align}
-    e^{i\Phi(\mathbf{d}_i\cdot\bm{\hat{\sigma}})} &= \sum_k \frac{(i\Phi)^{2k}}{(2k)!}\hat{I}_2 + \sum_k  \frac{(i\Phi)^{2k+1}}{(2k+1)!} (\mathbf{d}_i\cdot\bm{\hat{\sigma}}) = \cos(\Phi)\hat{I}_2 + i \sin(\Phi) (\mathbf{d}_i\cdot\bm{\hat{\sigma}})\nonumber\\
+    e^{i\Phi(\mathbf{d}_i\cdot\bm{\hat{\sigma}})} &= \sum_{j=0}^\infty \frac{(i\Phi)^{2j}}{(2j)!}\hat{I}_2 + \sum_{j=0}^\infty  \frac{(i\Phi)^{2j+1}}{(2j+1)!} (\mathbf{d}_i\cdot\bm{\hat{\sigma}}) = \cos(\Phi)\hat{I}_2 + i \sin(\Phi) (\mathbf{d}_i\cdot\bm{\hat{\sigma}})\nonumber\\
     &= \frac{1}{\sqrt{t^2+ \lambda^2}}\left\{t\hat{I}_2 - i\lambda (\bm{d}_i \cdot \bm{\hat{\sigma}}) \right\}.
     \label{eq: hamilton exp}
 \end{align}
 
 Here, we define $\cos(\Phi) = t/\sqrt{t^2 + \lambda^2}$ and $\sin(\Phi) = -\lambda/\sqrt{t^2 + \lambda^2}$. Analogously, for the primed parameters the relation is given by
 \begin{align}
-    e^{i\Phi'(\bm{d}_i\cdot \bm{\hat{\sigma}})} = \frac{1}{\sqrt{t'^2 + \lambda'^2}} \left\{t'\hat{I}_2 - i\lambda' (\bm{d}_i \cdot \bm{\hat{\sigma}}) \right\}
+    e^{i\Phi'(\bm{d}_i\cdot \bm{\hat{\sigma}})} = \frac{1}{\sqrt{t'^2 + \lambda'^2}} \left\{t'\hat{I}_2 - i\lambda' (\bm{d}_i \cdot \bm{\hat{\sigma}}) \right\},
     \label{eq: hamiltonian exp2}
 \end{align}
-with $\cos(\Phi') = t'/\sqrt{t'^2 + \lambda'^2}$ and $\sin(\Phi') = -\lambda'/\sqrt{t'^2 + \lambda'^2}$.
+where we use $\cos(\Phi') = t'/\sqrt{t'^2 + \lambda'^2}$ and $\sin(\Phi') = -\lambda'/\sqrt{t'^2 + \lambda'^2}$.
 Thus, with Eqs.~\eqref{eq: hamilton exp} and \eqref{eq: hamiltonian exp2}, we obtain
 \begin{align}
     H_{\text{hop.}}
@@ -57,4 +57,4 @@ e^{i\Phi(\bm{d}_i\cdot\bm{\hat{\sigma}})}
 +\mathrm{H.c.}.
 \label{eq: appendix hamiltonian}
 \end{align}
-This is the hopping Hamiltonian combining the Rashba, given by  Eq.~\eqref{eq:Rashba_Hamiltonian_soc}, and the spin-independent hopping terms as in  Eq.~\eqref{eq: 1_hamiltonian_hopping}.
+This is the hopping Hamiltonian combining the Rashba-SOC term, given by  Eq.~\eqref{eq:Rashba_Hamiltonian_soc}, and the spin-independent hopping terms as in  Eq.~\eqref{eq: 1_hamiltonian_hopping}.
