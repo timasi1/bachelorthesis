@@ -7,7 +7,7 @@ To further simplify the hopping Hamiltonian $H_\text{hop.}$, we begin by showing
     &= (d_x^2 + d_y^2 + d_z^2)\hat{I}_2 + d_xd_y\{\hat{\sigma}_x , \hat{\sigma}_y\} + d_yd_z\{\hat{\sigma}_y , \hat{\sigma}_z\} + d_xd_z\{\hat{\sigma}_x , \hat{\sigma}_z\} = \hat{I}_2
     \label{eq: appA d*sigma},
 \end{align}
-where $\hat{I}_2$ denotes the $2\times2$ identity matrix and the anticommutator, defined as $\{\hat{A} , \hat{B}\} = \hat{A}\hat{B}+\hat{B}\hat{A}$. Also, the unit-vector $|d_i| = 1$ and $\{\hat{\sigma}_i, \hat{\sigma}_j\} = 2\delta_{ij}\hat{I}_2$ are used. 
+where $\hat{I}_2$ denotes the $2\times2$ identity matrix and the anticommutator is defined as $\{\hat{A} , \hat{B}\} = \hat{A}\hat{B}+\hat{B}\hat{A}$. Also, the unit-vector $|\mathbf{d}_i| = 1$ and $\{\hat{\sigma}_\mu, \hat{\sigma}_\nu\} = 2\delta_{\mu\nu}\hat{I}_2$ with $\mu,\nu\in\{x,y,z\}$ are used. 
 Next, we can use Euler's formula and Eq.~\eqref{eq: appA d*sigma} to obtain
 \begin{align}
     e^{i\Phi(\mathbf{d}_i\cdot\bm{\hat{\sigma}})} &= \sum_{j=0}^\infty \frac{(i\Phi)^{2j}}{(2j)!}\hat{I}_2 + \sum_{j=0}^\infty  \frac{(i\Phi)^{2j+1}}{(2j+1)!} (\mathbf{d}_i\cdot\bm{\hat{\sigma}}) = \cos(\Phi)\hat{I}_2 + i \sin(\Phi) (\mathbf{d}_i\cdot\bm{\hat{\sigma}})\nonumber\\
@@ -15,7 +15,7 @@ Next, we can use Euler's formula and Eq.~\eqref{eq: appA d*sigma} to obtain
     \label{eq: hamilton exp}
 \end{align}
 
-Here, we define $\cos(\Phi) = t/\sqrt{t^2 + \lambda^2}$ and $\sin(\Phi) = -\lambda/\sqrt{t^2 + \lambda^2}$. Analogously, for the primed parameters the relation is given by
+Here, we define $\cos(\Phi) = t/\sqrt{t^2 + \lambda^2}$ and $\sin(\Phi) = -\lambda/\sqrt{t^2 + \lambda^2}$ for $t^2+\lambda^2 >0$. The case for $t=\lambda=0$ is later fixed by defining $\hat{t}_i$, which vanishes in this case. Analogously, for the primed parameters the relation is given by
 \begin{align}
     e^{i\Phi'(\bm{d}_i\cdot \bm{\hat{\sigma}})} = \frac{1}{\sqrt{t'^2 + \lambda'^2}} \left\{t'\hat{I}_2 - i\lambda' (\bm{d}_i \cdot \bm{\hat{\sigma}}) \right\},
     \label{eq: hamiltonian exp2}
@@ -57,4 +57,4 @@ e^{i\Phi(\bm{d}_i\cdot\bm{\hat{\sigma}})}
 +\mathrm{H.c.}.
 \label{eq: appendix hamiltonian}
 \end{align}
-This is the hopping Hamiltonian combining the Rashba-SOC term, given by  Eq.~\eqref{eq:Rashba_Hamiltonian_soc}, and the spin-independent hopping terms as in  Eq.~\eqref{eq: 1_hamiltonian_hopping}.
+This combines the Rashba-SOC term in Eq.~\eqref{eq:Rashba_Hamiltonian_soc} with the spin-independent hopping term in  Eq.~\eqref{eq: 1_hamiltonian_hopping}.
